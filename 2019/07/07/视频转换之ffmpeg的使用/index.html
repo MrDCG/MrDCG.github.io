@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>视频转换之ffmpeg的使用 - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="1、创建Java项目 在该项目下创建三个文件夹ffmpeg、input、output分别存放转换器ffmpeg.exe、须转化的视频文件和转化后的视频文件。 ffmpeg能解析的格式：（asx，as,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">视频转换之ffmpeg的使用</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">视频转换之ffmpeg的使用</h1>
+        <div class="stuff">
+            <span>七月 07, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/插件/">插件</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="1、创建Java项目"><a href="#1、创建Java项目" class="headerlink" title="1、创建Java项目"></a><a href></a>1、创建Java项目</h2><p> 在该项目下创建三个文件夹ffmpeg、input、output分别存放转换器ffmpeg.exe、须转化的视频文件和转化后的视频文件。<br> ffmpeg能解析的格式：（asx，asf，mpg，wmv，3gp，mp4，mov，avi，flv等）。<br> ffmpeg无法解析的文件格式(wmv9，rm，rmvb等), 可以先用别的工具（mencoder）转换为avi(ffmpeg能解析的)格式.<br> <a href="https://pan.baidu.com/s/16mwsbKOTWyIGUB4A_VLTgw" target="_blank" rel="noopener">转化器下载</a><br> 提取码：ts5g</p>
+<h2 id="2、创建class文件"><a href="#2、创建class文件" class="headerlink" title="2、创建class文件"></a><a href></a>2、创建class文件</h2><p> 创建包com<br> 在该包下创建class文件ConvertVideo.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br></pre></td><td class="code"><pre><span class="line">package com;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Calendar;</span><br><span class="line">import java.util.List;</span><br><span class="line">public class ConvertVideo &#123;</span><br><span class="line"></span><br><span class="line">    private static String inputPath = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    private static String outputPath = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    private static String ffmpegPath = &quot;&quot;;</span><br><span class="line">   public static void main(String args[]) throws IOException &#123;</span><br><span class="line"></span><br><span class="line">        getPath();</span><br><span class="line"></span><br><span class="line">        if (!checkfile(inputPath)) &#123;</span><br><span class="line">            System.out.println(inputPath + &quot; is not file&quot;);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        if (process()) &#123;</span><br><span class="line">            System.out.println(&quot;ok&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void getPath() &#123; </span><br><span class="line">        // 先获取当前项目路径，在获得源文件、目标文件、转换器的路径</span><br><span class="line">        File diretory = new File(&quot;&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            String currPath = diretory.getAbsolutePath();</span><br><span class="line">            inputPath = &quot;D:\\input\\1.wmv&quot;;</span><br><span class="line">            outputPath = &quot;D:\\output\\&quot;;</span><br><span class="line">            ffmpegPath = &quot;D:\\ffmpeg\\ffmpeg\\&quot;;</span><br><span class="line">            System.out.println(currPath);</span><br><span class="line">        &#125;</span><br><span class="line">        catch (Exception e) &#123;</span><br><span class="line">            System.out.println(&quot;getPath出错&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static boolean process() &#123;</span><br><span class="line">        int type = checkContentType();</span><br><span class="line">        boolean status = false;</span><br><span class="line">            System.out.println(&quot;直接转成mp4格式&quot;);</span><br><span class="line">            status = processMp4(inputPath);// 直接转成mp4格式</span><br><span class="line">        return status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static int checkContentType() &#123;</span><br><span class="line">        String type = inputPath.substring(inputPath.lastIndexOf(&quot;.&quot;) + 1, inputPath.length())</span><br><span class="line">                .toLowerCase();</span><br><span class="line">        // ffmpeg能解析的格式：（asx，asf，mpg，wmv，3gp，mp4，mov，avi，flv等）</span><br><span class="line">        if (type.equals(&quot;avi&quot;)) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else if (type.equals(&quot;mpg&quot;)) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else if (type.equals(&quot;wmv&quot;)) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else if (type.equals(&quot;3gp&quot;)) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else if (type.equals(&quot;mov&quot;)) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else if (type.equals(&quot;mp4&quot;)) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else if (type.equals(&quot;asf&quot;)) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else if (type.equals(&quot;asx&quot;)) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else if (type.equals(&quot;flv&quot;)) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        // 对ffmpeg无法解析的文件格式(wmv9，rm，rmvb等),</span><br><span class="line">        // 可以先用别的工具（mencoder）转换为avi(ffmpeg能解析的)格式.</span><br><span class="line">        else if (type.equals(&quot;wmv9&quot;)) &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125; else if (type.equals(&quot;rm&quot;)) &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125; else if (type.equals(&quot;rmvb&quot;)) &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        return 9;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static boolean checkfile(String path) &#123;</span><br><span class="line">        File file = new File(path);</span><br><span class="line">        if (!file.isFile()) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 对ffmpeg无法解析的文件格式(wmv9，rm，rmvb等), 可以先用别的工具（mencoder）转换为avi(ffmpeg能解析的)格式.</span><br><span class="line">    private static String processAVI(int type) &#123;</span><br><span class="line">        List&lt;String&gt; commend = new ArrayList&lt;String&gt;();</span><br><span class="line">        commend.add(ffmpegPath + &quot;mencoder&quot;);</span><br><span class="line">        commend.add(inputPath);</span><br><span class="line">        commend.add(&quot;-oac&quot;);</span><br><span class="line">        commend.add(&quot;lavc&quot;);</span><br><span class="line">        commend.add(&quot;-lavcopts&quot;);</span><br><span class="line">        commend.add(&quot;acodec=mp3:abitrate=64&quot;);</span><br><span class="line">        commend.add(&quot;-ovc&quot;);</span><br><span class="line">        commend.add(&quot;xvid&quot;);</span><br><span class="line">        commend.add(&quot;-xvidencopts&quot;);</span><br><span class="line">        commend.add(&quot;bitrate=600&quot;);</span><br><span class="line">        commend.add(&quot;-of&quot;);</span><br><span class="line">        commend.add(&quot;mp4&quot;);</span><br><span class="line">        commend.add(&quot;-o&quot;);</span><br><span class="line">        commend.add(outputPath + &quot;a.AVI&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            ProcessBuilder builder = new ProcessBuilder();</span><br><span class="line">            Process process = builder.command(commend).redirectErrorStream(true).start();</span><br><span class="line">            new PrintStream(process.getInputStream());</span><br><span class="line">            new PrintStream(process.getErrorStream());</span><br><span class="line">            process.waitFor();</span><br><span class="line">            return outputPath + &quot;a.AVI&quot;;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // ffmpeg能解析的格式：（asx，asf，mpg，wmv，3gp，mp4，mov，avi，flv等）</span><br><span class="line">    private static boolean processFlv(String oldfilepath) &#123;</span><br><span class="line"></span><br><span class="line">        if (!checkfile(inputPath)) &#123;</span><br><span class="line">            System.out.println(oldfilepath + &quot; is not file&quot;);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;String&gt; command = new ArrayList&lt;String&gt;();</span><br><span class="line">        command.add(ffmpegPath + &quot;ffmpeg&quot;);</span><br><span class="line">        command.add(&quot;-i&quot;);</span><br><span class="line">        command.add(oldfilepath);</span><br><span class="line">        command.add(&quot;-ab&quot;);</span><br><span class="line">        command.add(&quot;56&quot;);</span><br><span class="line">        command.add(&quot;-ar&quot;);</span><br><span class="line">        command.add(&quot;22050&quot;);</span><br><span class="line">        command.add(&quot;-qscale&quot;);</span><br><span class="line">        command.add(&quot;8&quot;);</span><br><span class="line">        command.add(&quot;-r&quot;);</span><br><span class="line">        command.add(&quot;15&quot;);</span><br><span class="line">        command.add(&quot;-s&quot;);</span><br><span class="line">        command.add(&quot;600x500&quot;);</span><br><span class="line">        command.add(outputPath + &quot;a.flv&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line"></span><br><span class="line">            // 方案1</span><br><span class="line">//            Process videoProcess = Runtime.getRuntime().exec(ffmpegPath + &quot;ffmpeg -i &quot; + oldfilepath </span><br><span class="line">//                    + &quot; -ab 56 -ar 22050 -qscale 8 -r 15 -s 600x500 &quot;</span><br><span class="line">//                    + outputPath + &quot;a.flv&quot;);</span><br><span class="line"></span><br><span class="line">            // 方案2</span><br><span class="line">            Process videoProcess = new ProcessBuilder(command).redirectErrorStream(true).start();</span><br><span class="line"></span><br><span class="line">            new PrintStream(videoProcess.getErrorStream()).start();</span><br><span class="line"></span><br><span class="line">            new PrintStream(videoProcess.getInputStream()).start();</span><br><span class="line"></span><br><span class="line">            videoProcess.waitFor();</span><br><span class="line"></span><br><span class="line">            return true;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">private static boolean processMp4(String oldfilepath) &#123;</span><br><span class="line"></span><br><span class="line">    if (!checkfile(inputPath)) &#123;</span><br><span class="line">        System.out.println(oldfilepath + &quot; is not file&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    List&lt;String&gt; command = new ArrayList&lt;String&gt;();</span><br><span class="line">    command.add(ffmpegPath + &quot;ffmpeg&quot;);</span><br><span class="line">    command.add(&quot;-i&quot;);</span><br><span class="line">    command.add(oldfilepath);</span><br><span class="line">    command.add(&quot;-c:v&quot;);</span><br><span class="line">    command.add(&quot;libx264&quot;);</span><br><span class="line">    command.add(&quot;-mbd&quot;);</span><br><span class="line">    command.add(&quot;0&quot;);</span><br><span class="line">    command.add(&quot;-c:a&quot;);</span><br><span class="line">    command.add(&quot;aac&quot;);</span><br><span class="line">    command.add(&quot;-strict&quot;);</span><br><span class="line">    command.add(&quot;-2&quot;);</span><br><span class="line">    command.add(&quot;-pix_fmt&quot;);</span><br><span class="line">    command.add(&quot;yuv420p&quot;);</span><br><span class="line">    command.add(&quot;-movflags&quot;);</span><br><span class="line">    command.add(&quot;faststart&quot;);</span><br><span class="line">    command.add(outputPath + &quot;a.mp4&quot;);		//目标文件命名</span><br><span class="line">    try &#123;</span><br><span class="line"></span><br><span class="line">        // 方案1</span><br><span class="line">//        Process videoProcess = Runtime.getRuntime().exec(ffmpegPath + &quot;ffmpeg -i &quot; + oldfilepath </span><br><span class="line">//                + &quot; -ab 56 -ar 22050 -qscale 8 -r 15 -s 600x500 &quot;</span><br><span class="line">//                + outputPath + &quot;a.flv&quot;);</span><br><span class="line"></span><br><span class="line">        // 方案2</span><br><span class="line">        Process videoProcess = new ProcessBuilder(command).redirectErrorStream(true).start();</span><br><span class="line"></span><br><span class="line">        new PrintStream(videoProcess.getErrorStream()).start();</span><br><span class="line"></span><br><span class="line">        new PrintStream(videoProcess.getInputStream()).start();</span><br><span class="line"></span><br><span class="line">        videoProcess.waitFor();</span><br><span class="line"></span><br><span class="line">        return true;</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">class PrintStream extends Thread </span><br><span class="line">&#123;</span><br><span class="line">    java.io.InputStream __is = null;</span><br><span class="line">    public PrintStream(java.io.InputStream is) </span><br><span class="line">    &#123;</span><br><span class="line">        __is = is;</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    public void run() </span><br><span class="line">    &#123;</span><br><span class="line">        try </span><br><span class="line">        &#123;</span><br><span class="line">            while(this != null) </span><br><span class="line">            &#123;</span><br><span class="line">                int _ch = __is.read();</span><br><span class="line">                if(_ch != -1) </span><br><span class="line">                    System.out.print((char)_ch); </span><br><span class="line">                else break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        catch (Exception e) </span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3、转化成功"><a href="#3、转化成功" class="headerlink" title="3、转化成功"></a><a href></a>3、转化成功</h2><p> <img src="https://img-blog.csdnimg.cn/20190705155232159.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VyaHVvYnVlcg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/1313558186.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
