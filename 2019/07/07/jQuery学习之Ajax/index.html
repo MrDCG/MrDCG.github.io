@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Archive: 2019/7</title>
+    <title>jQuery学习之Ajax - 闲看花开 静待花落</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="贰货不二,"> 
-    
+    <meta name="description" content="AJAX 简介 AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。
+ AJAX = Asynchronous JavaScript and XML（异步的 JavaScript,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -30,86 +31,69 @@
 <body class="loading">
     <span id="config-title" style="display:none">闲看花开 静待花落</span>
     <div id="loader"></div>
-    <div id="single" class="page">
-    <div id="top">
-        <a class="icon-left image-icon" href="javascript:history.back()"></a>
-    </div>
-    <div class="section">
-        <div class="article">
-            <div class="main">
-                <div class="content">
-                    <div class="timeline">
-                      <h2 class="timeline-title">归档: 13篇</h2>
-                      
-                        
-                          <h3 class="timeline-subtitle">2019</h3>
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/jQuery学习之Ajax/">jQuery学习之Ajax</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/Java基础之集合/">Java基础之集合</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/JavaScript和jQuery的一些方法/">JavaScript和jQuery的一些方法</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/Java基础之带标签的break和continue/">Java基础之带标签的break和continue</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/将前端网页生成二维码/">将前端网页生成二维码</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/视频转换之ffmpeg的使用/">视频转换之ffmpeg的使用</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/好看的8种下拉列表/">好看的8种下拉列表</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/炫酷的窗口切换/">炫酷的窗口切换</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/Highcharts之实时柱状图/">Highcharts之实时柱状图</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2019-07-07</time>
-                          <a target="_self" href="/2019/07/07/Highcharts之实时饼状图/">Highcharts之实时饼状图</a>
-                        </div>
-                      
-                    </div>
-                </div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">jQuery学习之Ajax</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
             </div>
+            <div id="qr"></div>
         </div>
     </div>
+    <div class="scrollbar"></div>
 </div>
 
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">jQuery学习之Ajax</h1>
+        <div class="stuff">
+            <span>七月 07, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/学习/">学习</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="AJAX-简介"><a href="#AJAX-简介" class="headerlink" title="AJAX 简介"></a><a href></a>AJAX 简介</h2><p> AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。</p>
+<p> AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。<br> AJAX 不是新的编程语言，而是一种使用现有标准的新方法。<br> AJAX 最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。<br> AJAX 不需要任何浏览器插件，但需要用户允许JavaScript在浏览器上执行</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a><a href></a>实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">							url:&apos;/Software-cup001/Current&apos;,			//获取数据的页面地址</span><br><span class="line">							</span><br><span class="line">							//默认值: true，dataType 为 script 和 jsonp 时默认为 false。设置为 false 将不缓存此页面。</span><br><span class="line">							cache:false,</span><br><span class="line">							dataType:&quot;json&quot;,</span><br><span class="line">							data:&#123;&#125;,</span><br><span class="line">							//仅在服务器数据改变时获取新数据。默认值: false</span><br><span class="line">							ifModified:false,</span><br><span class="line">							//请求数据成功，将数据值给到result</span><br><span class="line">							success: function(result)&#123;</span><br><span class="line">							</span><br><span class="line">							&#125;</span><br><span class="line">							</span><br><span class="line">						&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/1374051000.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
