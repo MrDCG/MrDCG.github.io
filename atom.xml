@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://mrdcg.github.io/"/>
   <updated>2019-07-07T10:25:27.067Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://mrdcg.github.io/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>jQuery学习之Ajax</title>
-    <link href="http://yoursite.com/2019/07/07/jQuery%E5%AD%A6%E4%B9%A0%E4%B9%8BAjax/"/>
-    <id>http://yoursite.com/2019/07/07/jQuery学习之Ajax/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/jQuery%E5%AD%A6%E4%B9%A0%E4%B9%8BAjax/"/>
+    <id>https://mrdcg.github.io/2019/07/07/jQuery学习之Ajax/</id>
     <published>2019-07-07T09:39:17.000Z</published>
     <updated>2019-07-07T10:25:27.067Z</updated>
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="jQuery" scheme="http://yoursite.com/categories/jQuery/"/>
+      <category term="jQuery" scheme="https://mrdcg.github.io/categories/jQuery/"/>
     
     
-      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Java基础之集合</title>
-    <link href="http://yoursite.com/2019/07/07/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/"/>
-    <id>http://yoursite.com/2019/07/07/Java基础之集合/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/"/>
+    <id>https://mrdcg.github.io/2019/07/07/Java基础之集合/</id>
     <published>2019-07-07T09:36:02.000Z</published>
     <updated>2019-07-07T09:41:59.194Z</updated>
     
@@ -61,17 +61,17 @@
     
     </summary>
     
-      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+      <category term="Java" scheme="https://mrdcg.github.io/categories/Java/"/>
     
     
-      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript和jQuery的一些方法</title>
-    <link href="http://yoursite.com/2019/07/07/JavaScript%E5%92%8CjQuery%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2019/07/07/JavaScript和jQuery的一些方法/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/JavaScript%E5%92%8CjQuery%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/"/>
+    <id>https://mrdcg.github.io/2019/07/07/JavaScript和jQuery的一些方法/</id>
     <published>2019-07-07T09:35:57.000Z</published>
     <updated>2019-07-07T10:22:51.411Z</updated>
     
@@ -87,17 +87,17 @@
     
     </summary>
     
-      <category term="jQuery" scheme="http://yoursite.com/categories/jQuery/"/>
+      <category term="jQuery" scheme="https://mrdcg.github.io/categories/jQuery/"/>
     
     
-      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Java基础之带标签的break和continue</title>
-    <link href="http://yoursite.com/2019/07/07/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%B8%A6%E6%A0%87%E7%AD%BE%E7%9A%84break%E5%92%8Ccontinue/"/>
-    <id>http://yoursite.com/2019/07/07/Java基础之带标签的break和continue/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%B8%A6%E6%A0%87%E7%AD%BE%E7%9A%84break%E5%92%8Ccontinue/"/>
+    <id>https://mrdcg.github.io/2019/07/07/Java基础之带标签的break和continue/</id>
     <published>2019-07-07T09:32:18.000Z</published>
     <updated>2019-07-07T11:45:49.744Z</updated>
     
@@ -113,17 +113,17 @@
     
     </summary>
     
-      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+      <category term="Java" scheme="https://mrdcg.github.io/categories/Java/"/>
     
     
-      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>将前端网页生成二维码</title>
-    <link href="http://yoursite.com/2019/07/07/%E5%B0%86%E5%89%8D%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/"/>
-    <id>http://yoursite.com/2019/07/07/将前端网页生成二维码/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/%E5%B0%86%E5%89%8D%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/"/>
+    <id>https://mrdcg.github.io/2019/07/07/将前端网页生成二维码/</id>
     <published>2019-07-07T09:32:17.000Z</published>
     <updated>2019-07-07T12:03:03.343Z</updated>
     
@@ -139,17 +139,17 @@
     
     </summary>
     
-      <category term="网页" scheme="http://yoursite.com/categories/%E7%BD%91%E9%A1%B5/"/>
+      <category term="网页" scheme="https://mrdcg.github.io/categories/%E7%BD%91%E9%A1%B5/"/>
     
     
-      <category term="操作" scheme="http://yoursite.com/tags/%E6%93%8D%E4%BD%9C/"/>
+      <category term="操作" scheme="https://mrdcg.github.io/tags/%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
   <entry>
     <title>视频转换之ffmpeg的使用</title>
-    <link href="http://yoursite.com/2019/07/07/%E8%A7%86%E9%A2%91%E8%BD%AC%E6%8D%A2%E4%B9%8Bffmpeg%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2019/07/07/视频转换之ffmpeg的使用/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/%E8%A7%86%E9%A2%91%E8%BD%AC%E6%8D%A2%E4%B9%8Bffmpeg%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://mrdcg.github.io/2019/07/07/视频转换之ffmpeg的使用/</id>
     <published>2019-07-07T09:31:49.000Z</published>
     <updated>2019-07-07T11:47:30.009Z</updated>
     
@@ -165,17 +165,17 @@
     
     </summary>
     
-      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+      <category term="Java" scheme="https://mrdcg.github.io/categories/Java/"/>
     
     
-      <category term="插件" scheme="http://yoursite.com/tags/%E6%8F%92%E4%BB%B6/"/>
+      <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>好看的8种下拉列表</title>
-    <link href="http://yoursite.com/2019/07/07/%E5%A5%BD%E7%9C%8B%E7%9A%848%E7%A7%8D%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/"/>
-    <id>http://yoursite.com/2019/07/07/好看的8种下拉列表/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/%E5%A5%BD%E7%9C%8B%E7%9A%848%E7%A7%8D%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/"/>
+    <id>https://mrdcg.github.io/2019/07/07/好看的8种下拉列表/</id>
     <published>2019-07-07T09:31:34.000Z</published>
     <updated>2019-07-07T11:51:47.729Z</updated>
     
@@ -191,17 +191,17 @@
     
     </summary>
     
-      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://mrdcg.github.io/categories/Javascript/"/>
     
     
-      <category term="插件" scheme="http://yoursite.com/tags/%E6%8F%92%E4%BB%B6/"/>
+      <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>炫酷的窗口切换</title>
-    <link href="http://yoursite.com/2019/07/07/%E7%82%AB%E9%85%B7%E7%9A%84%E7%AA%97%E5%8F%A3%E5%88%87%E6%8D%A2/"/>
-    <id>http://yoursite.com/2019/07/07/炫酷的窗口切换/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/%E7%82%AB%E9%85%B7%E7%9A%84%E7%AA%97%E5%8F%A3%E5%88%87%E6%8D%A2/"/>
+    <id>https://mrdcg.github.io/2019/07/07/炫酷的窗口切换/</id>
     <published>2019-07-07T09:31:17.000Z</published>
     <updated>2019-07-07T11:38:45.241Z</updated>
     
@@ -217,17 +217,17 @@
     
     </summary>
     
-      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://mrdcg.github.io/categories/Javascript/"/>
     
     
-      <category term="插件" scheme="http://yoursite.com/tags/%E6%8F%92%E4%BB%B6/"/>
+      <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>Highcharts之实时柱状图</title>
-    <link href="http://yoursite.com/2019/07/07/Highcharts%E4%B9%8B%E5%AE%9E%E6%97%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE/"/>
-    <id>http://yoursite.com/2019/07/07/Highcharts之实时柱状图/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/Highcharts%E4%B9%8B%E5%AE%9E%E6%97%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE/"/>
+    <id>https://mrdcg.github.io/2019/07/07/Highcharts之实时柱状图/</id>
     <published>2019-07-07T09:30:26.000Z</published>
     <updated>2019-07-07T10:01:14.695Z</updated>
     
@@ -243,17 +243,17 @@
     
     </summary>
     
-      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://mrdcg.github.io/categories/Javascript/"/>
     
     
-      <category term="插件" scheme="http://yoursite.com/tags/%E6%8F%92%E4%BB%B6/"/>
+      <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>Highcharts之实时饼状图</title>
-    <link href="http://yoursite.com/2019/07/07/Highcharts%E4%B9%8B%E5%AE%9E%E6%97%B6%E9%A5%BC%E7%8A%B6%E5%9B%BE/"/>
-    <id>http://yoursite.com/2019/07/07/Highcharts之实时饼状图/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/Highcharts%E4%B9%8B%E5%AE%9E%E6%97%B6%E9%A5%BC%E7%8A%B6%E5%9B%BE/"/>
+    <id>https://mrdcg.github.io/2019/07/07/Highcharts之实时饼状图/</id>
     <published>2019-07-07T09:30:08.000Z</published>
     <updated>2019-07-07T11:54:11.607Z</updated>
     
@@ -269,17 +269,17 @@
     
     </summary>
     
-      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://mrdcg.github.io/categories/Javascript/"/>
     
     
-      <category term="插件" scheme="http://yoursite.com/tags/%E6%8F%92%E4%BB%B6/"/>
+      <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>Hightcharts之实时曲线图</title>
-    <link href="http://yoursite.com/2019/07/07/Hightcharts%E4%B9%8B%E5%AE%9E%E6%97%B6%E6%9B%B2%E7%BA%BF%E5%9B%BE/"/>
-    <id>http://yoursite.com/2019/07/07/Hightcharts之实时曲线图/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/Hightcharts%E4%B9%8B%E5%AE%9E%E6%97%B6%E6%9B%B2%E7%BA%BF%E5%9B%BE/"/>
+    <id>https://mrdcg.github.io/2019/07/07/Hightcharts之实时曲线图/</id>
     <published>2019-07-07T09:29:20.000Z</published>
     <updated>2019-07-07T11:58:43.120Z</updated>
     
@@ -295,17 +295,17 @@
     
     </summary>
     
-      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://mrdcg.github.io/categories/Javascript/"/>
     
     
-      <category term="插件" scheme="http://yoursite.com/tags/%E6%8F%92%E4%BB%B6/"/>
+      <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>上传文件到GitHub上的两种方法（纯新手可以看看）</title>
-    <link href="http://yoursite.com/2019/07/07/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0GitHub%E4%B8%8A%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%88%E7%BA%AF%E6%96%B0%E6%89%8B%E5%8F%AF%E4%BB%A5%E7%9C%8B%E7%9C%8B%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/07/07/上传文件到GitHub上的两种方法（纯新手可以看看）/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0GitHub%E4%B8%8A%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%88%E7%BA%AF%E6%96%B0%E6%89%8B%E5%8F%AF%E4%BB%A5%E7%9C%8B%E7%9C%8B%EF%BC%89/"/>
+    <id>https://mrdcg.github.io/2019/07/07/上传文件到GitHub上的两种方法（纯新手可以看看）/</id>
     <published>2019-07-07T09:27:56.000Z</published>
     <updated>2019-07-07T10:12:43.604Z</updated>
     
@@ -321,17 +321,17 @@
     
     </summary>
     
-      <category term="GitHub" scheme="http://yoursite.com/categories/GitHub/"/>
+      <category term="GitHub" scheme="https://mrdcg.github.io/categories/GitHub/"/>
     
     
-      <category term="操作" scheme="http://yoursite.com/tags/%E6%93%8D%E4%BD%9C/"/>
+      <category term="操作" scheme="https://mrdcg.github.io/tags/%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序连接百度地图API实现天气查询</title>
-    <link href="http://yoursite.com/2019/07/07/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BF%9E%E6%8E%A5%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%AE%9E%E7%8E%B0%E5%A4%A9%E6%B0%94%E6%9F%A5%E8%AF%A2/"/>
-    <id>http://yoursite.com/2019/07/07/微信小程序连接百度地图API实现天气查询/</id>
+    <link href="https://mrdcg.github.io/2019/07/07/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BF%9E%E6%8E%A5%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%AE%9E%E7%8E%B0%E5%A4%A9%E6%B0%94%E6%9F%A5%E8%AF%A2/"/>
+    <id>https://mrdcg.github.io/2019/07/07/微信小程序连接百度地图API实现天气查询/</id>
     <published>2019-07-07T09:01:22.000Z</published>
     <updated>2019-07-07T09:25:14.108Z</updated>
     
@@ -347,10 +347,10 @@
     
     </summary>
     
-      <category term="开发" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://mrdcg.github.io/categories/%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="微信小程序" scheme="http://yoursite.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="https://mrdcg.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
