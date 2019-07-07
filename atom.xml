@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-07-07T01:56:32.525Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello2</title>
+    <link href="http://yoursite.com/2019/07/07/hello2/"/>
+    <id>http://yoursite.com/2019/07/07/hello2/</id>
+    <published>2019-07-07T01:56:32.000Z</published>
+    <updated>2019-07-07T01:56:32.525Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hello</title>
+    <link href="http://yoursite.com/2019/07/07/hello/"/>
+    <id>http://yoursite.com/2019/07/07/hello/</id>
+    <published>2019-07-07T01:56:16.000Z</published>
+    <updated>2019-07-07T01:56:16.689Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hello diaspora</title>
+    <link href="http://yoursite.com/2019/07/07/hello-diaspora/"/>
+    <id>http://yoursite.com/2019/07/07/hello-diaspora/</id>
+    <published>2019-07-07T01:48:55.000Z</published>
+    <updated>2019-07-07T01:53:51.007Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;##Hello&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
