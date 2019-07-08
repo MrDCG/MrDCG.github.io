@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2019-07-08T11:23:22.067Z</updated>
+  <updated>2019-07-08T12:00:06.148Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo写博客时的一些东西</title>
+    <link href="https://mrdcg.github.io/2019/07/08/hexo%E5%86%99%E5%8D%9A%E5%AE%A2%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/"/>
+    <id>https://mrdcg.github.io/2019/07/08/hexo写博客时的一些东西/</id>
+    <published>2019-07-08T11:55:39.000Z</published>
+    <updated>2019-07-08T12:00:06.148Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;  在我安装的素锦主题中，写博客时需要注意的东西&lt;br&gt; &lt;img src=&quot;https://i.loli.net/2019/07/08/5d233010a456e16524.png&quot; alt&gt;&lt;br&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="博客网站" scheme="https://mrdcg.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/"/>
+    
+    
+      <category term="互联网" scheme="https://mrdcg.github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo素锦主题开启Gitalk评论功能</title>
