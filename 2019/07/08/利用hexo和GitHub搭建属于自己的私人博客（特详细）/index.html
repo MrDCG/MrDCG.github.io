@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>利用hexo和GitHub搭建属于自己的私人博客（特详细） - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="先展示一下 贰货不二的博客
+正式开始。。。 以下命令行操作全都在cmd命令行(win+R)下操作
+一、搭建环境1、Github配置首先，必须有个GitHub账号，没有的自己注册其次，建立一个仓库  ,"> 
+    <meta name="author" content="贰货不二"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">利用hexo和GitHub搭建属于自己的私人博客（特详细）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">利用hexo和GitHub搭建属于自己的私人博客（特详细）</h1>
+        <div class="stuff">
+            <span>七月 08, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/互联网/">互联网</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="先展示一下"><a href="#先展示一下" class="headerlink" title="先展示一下"></a><a href></a>先展示一下</h1><p> <a href="https://mrdcg.github.io/">贰货不二的博客</a></p>
+<h1 id="正式开始。。。"><a href="#正式开始。。。" class="headerlink" title="正式开始。。。"></a><a href></a>正式开始。。。</h1><p> 以下命令行操作全都在cmd命令行(win+R)下操作</p>
+<h2 id="一、搭建环境"><a href="#一、搭建环境" class="headerlink" title="一、搭建环境"></a><a href></a>一、搭建环境</h2><h3 id="1、Github配置"><a href="#1、Github配置" class="headerlink" title="1、Github配置"></a><a href></a>1、Github配置</h3><h4 id="首先，必须有个GitHub账号，没有的自己注册"><a href="#首先，必须有个GitHub账号，没有的自己注册" class="headerlink" title="首先，必须有个GitHub账号，没有的自己注册"></a><a href></a>首先，必须有个GitHub账号，没有的自己注册</h4><h4 id="其次，建立一个仓库"><a href="#其次，建立一个仓库" class="headerlink" title="其次，建立一个仓库"></a><a href></a>其次，建立一个仓库</h4><p> <img src="https://i.loli.net/2019/07/08/5d230d661dcf924676.png" alt><br> 仓库名必须是你的GitHub账户名加github.io，比如 xiaogang.github.io<br> <img src="https://i.loli.net/2019/07/08/5d230d68e130025219.png" alt></p>
+<h4 id="接下来配置SSH-KEY"><a href="#接下来配置SSH-KEY" class="headerlink" title="接下来配置SSH-KEY"></a><a href></a>接下来配置SSH-KEY</h4><p> 因为要用到git命令而且后面也得使用gitbash，所以先安装<br> 进入<a href="https://www.git-scm.com/downloads" target="_blank" rel="noopener">git bash</a>官网下载<br> <img src="https://i.loli.net/2019/07/08/5d230d6c90d9855104.png" alt><br> 我这里下载64位的<br> <img src="https://i.loli.net/2019/07/08/5d230d715996052600.png" alt><br> 完后直接安装就行（一路到底的next）<br> 安装完后命令行下输入(一行一行来)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub账户名&quot;</span><br><span class="line">git config --global user.email 你的GitHub绑定的邮箱</span><br><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub绑定的邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p> 注意：输入完最后一条命令后要多Enter几下，Enter到如图所示<br> <img src="https://i.loli.net/2019/07/08/5d230d74ecaf476772.png" alt><br> 进入图上的路径找到 id_rsa.pub文件<br> <img src="https://i.loli.net/2019/07/08/5d230d7996f8876032.png" alt><br> 用txt打开，复制其中所有内容<br> 然后进入GitHub<br> <img src="https://i.loli.net/2019/07/08/5d230d7f0f62527109.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d230d862630429278.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d230d89f387479207.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d230d8d16f7a73458.png" alt></p>
+<h3 id="2、安装Node-js"><a href="#2、安装Node-js" class="headerlink" title="2、安装Node.js"></a><a href></a>2、安装Node.js</h3><p> Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。<br> Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。<br> 在<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js官网</a>下载安装<br> <img src="https://i.loli.net/2019/07/08/5d230e7def8a216029.png" alt><br> 安装时一直next就行（盘符任意）<br> 在cmd命令行下输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p> 显示版本号则安装成功<br> <img src="https://i.loli.net/2019/07/08/5d230e817e10e21308.png" alt><br> 因为后面经常要用到 npm命令 所以再说一下npm<br> NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题<br> 一般node.js安装好了，npm也因该一起安装好了，如果不放心，在cmd命令行下输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p> 出现版本号就已经安装好了<br> 准备工作现在就差不多了，现在最重要的部分来了</p>
+<h2 id="二、搭建博客"><a href="#二、搭建博客" class="headerlink" title="二、搭建博客"></a><a href></a>二、搭建博客</h2><h3 id="1、安装hexo"><a href="#1、安装hexo" class="headerlink" title="1、安装hexo"></a><a href></a>1、安装hexo</h3><p> 命令行下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://i.loli.net/2019/07/08/5d230e85d4cba35635.png" alt></p>
+<h3 id="2、利用hexo创建本地博客目录"><a href="#2、利用hexo创建本地博客目录" class="headerlink" title="2、利用hexo创建本地博客目录"></a><a href></a>2、利用hexo创建本地博客目录</h3><p> 进入cmd命令行<br> 命令行操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">回退：</span><br><span class="line">cd..</span><br><span class="line">进入D盘：</span><br><span class="line">D:</span><br><span class="line">进入XX文件夹：</span><br><span class="line">cd XX</span><br></pre></td></tr></table></figure>
+
+<p> 在命令行下进入到需要创建本地博客目录的盘符，然后执行以下操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init erhuobuer    # erhuobuer为本地博客的文件名，可以任意取</span><br><span class="line">cd erhuobuer</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://i.loli.net/2019/07/08/5d230e8a909c235022.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d230e8f894f778782.png" alt><br> 注意：安装可能有点慢，如果中间卡了，可以先去把文件删了然后重来</p>
+<p> 完成后命令行输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g    #生成静态页面</span><br><span class="line">hexo s    #将网页推送到本地服务器</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://i.loli.net/2019/07/08/5d230e93cb67a71883.png" alt><br> 输入网址 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 查看本地博客<br> <img src="https://i.loli.net/2019/07/08/5d230ea3bc2d317639.png" alt><br> 命令行下输入 Ctrl+C 退出。</p>
+<h3 id="3、将本地博客部署到GitHub"><a href="#3、将本地博客部署到GitHub" class="headerlink" title="3、将本地博客部署到GitHub"></a><a href></a>3、将本地博客部署到GitHub</h3><p> 首先找见本地博客目录（我的是D:\blog\erhuobuer）<br> 然后找到 _config.yml文件，用编辑器打开（我的是Sublime Text3，没有编辑器的自己百度下载去）<br> <img src="https://i.loli.net/2019/07/08/5d230ea700f8b99324.png" alt><br> 输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type: git</span><br><span class="line">repo: git@github.com:XXXXX/XXXXX.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://i.loli.net/2019/07/08/5d230eaa2a61948126.png" alt><br> repo在你的GitHub里刚建的仓库获得<br> <img src="https://i.loli.net/2019/07/08/5d230eadc54a199818.png" alt><br> 保存后，在命令行下输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save   #安装部署所需的插件</span><br></pre></td></tr></table></figure>
+
+<p> 完成后输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d    #将文件部署到GitHub</span><br></pre></td></tr></table></figure>
+
+<p> 完成后进入GitHub，你会发现你的仓库里有东西了<br> <img src="https://i.loli.net/2019/07/08/5d230ebb15b3589668.png" alt><br> 进入setting找到github Pages<br> <img src="https://i.loli.net/2019/07/08/5d230ebee3b8873122.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d230ec2a566941601.png" alt><br> 在浏览器输入刚才的网址就能进入你的博客了<br> <img src="https://i.loli.net/2019/07/08/5d230ec59f08082420.png" alt><br> 最初步的博客搭建完成了，下一篇讲博客美化（主题）。</p>
+<p> <a href="https://mrdcg.github.io/2019/07/08/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96--%E4%B8%BB%E9%A2%98/">个人博客美化–主题</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/1367368790.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
