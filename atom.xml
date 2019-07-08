@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2019-07-08T10:05:36.995Z</updated>
+  <updated>2019-07-08T11:23:22.067Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hexo素锦主题开启Gitalk评论功能</title>
+    <link href="https://mrdcg.github.io/2019/07/08/hexo%E7%B4%A0%E9%94%A6%E4%B8%BB%E9%A2%98%E5%BC%80%E5%90%AFGitalk%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/"/>
+    <id>https://mrdcg.github.io/2019/07/08/hexo素锦主题开启Gitalk评论功能/</id>
+    <published>2019-07-08T11:17:05.000Z</published>
+    <updated>2019-07-08T11:23:22.067Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;  &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="博客网站" scheme="https://mrdcg.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/"/>
+    
+    
+      <category term="互联网" scheme="https://mrdcg.github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>个人博客美化--主题</title>
     <link href="https://mrdcg.github.io/2019/07/08/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96--%E4%B8%BB%E9%A2%98/"/>
     <id>https://mrdcg.github.io/2019/07/08/个人博客美化--主题/</id>
     <published>2019-07-08T09:30:08.000Z</published>
-    <updated>2019-07-08T10:05:36.995Z</updated>
+    <updated>2019-07-08T11:25:43.478Z</updated>
     
     <summary type="html">
     
