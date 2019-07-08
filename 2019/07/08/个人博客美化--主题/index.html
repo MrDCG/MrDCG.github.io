@@ -72,35 +72,35 @@
 <h3 id="1、安装主题"><a href="#1、安装主题" class="headerlink" title="1、安装主题"></a><a href></a>1、安装主题</h3><p> cmd命令行下进入本地博客目录输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Fechin/hexo-theme-diaspora.git themes/diaspora</span><br><span class="line">#尽量装在themes文件夹下</span><br></pre></td></tr></table></figure>
 
-<p> <img src="https://img-blog.csdnimg.cn/20190708114446435.png" alt></p>
-<h3 id="2、修改配置"><a href="#2、修改配置" class="headerlink" title="2、修改配置"></a><a href></a>2、修改配置</h3><p> 首先找到_config.yml文件<br> <img src="https://img-blog.csdnimg.cn/20190708120416296.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VyaHVvYnVlcg==,size_16,color_FFFFFF,t_70" alt><br> <img src="https://img-blog.csdnimg.cn/20190708115608311.png" alt><br> <img src="https://img-blog.csdnimg.cn/20190708115701797.png" alt><br> 添加：</p>
+<p> <img src="https://i.loli.net/2019/07/08/5d2313458373c82116.png" alt></p>
+<h3 id="2、修改配置"><a href="#2、修改配置" class="headerlink" title="2、修改配置"></a><a href></a>2、修改配置</h3><p> 首先找到_config.yml文件<br> <img src="https://i.loli.net/2019/07/08/5d23134877e8519435.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d23134c0a47574043.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d231350f050484347.png" alt><br> 添加：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  hub:</span><br><span class="line">  content:</span><br><span class="line">  content_limit: 140</span><br><span class="line">  content_limit_delim: &apos; &apos;</span><br><span class="line">  order_by: -date</span><br><span class="line">  icon: icon.png</span><br></pre></td></tr></table></figure>
 
-<p> <img src="https://img-blog.csdnimg.cn/2019070812163445.png" alt><br> 然后找到该主题的_config.yml文件（不是上面那个）<br> <img src="https://img-blog.csdnimg.cn/20190708120702834.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VyaHVvYnVlcg==,size_16,color_FFFFFF,t_70" alt><br> <img src="https://img-blog.csdnimg.cn/20190708120715971.png" alt><br> <img src="https://img-blog.csdnimg.cn/20190708120735705.png" alt><br> <img src="https://img-blog.csdnimg.cn/20190708120902590.png" alt><br> 添加：</p>
+<p> <img src="https://i.loli.net/2019/07/08/5d2313539850a39754.png" alt><br> 然后找到该主题的_config.yml文件（不是上面那个）<br> <img src="https://i.loli.net/2019/07/08/5d231357547ec58933.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d23135a58a1a65059.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d23135e4e59538399.png" alt><br> <img src="https://i.loli.net/2019/07/08/5d2313620220c73737.png" alt><br> 添加：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">分类: /categories</span><br><span class="line"> 归档: /archives</span><br><span class="line"> 标签云: /tags</span><br></pre></td></tr></table></figure>
 
-<p> <img src="https://img-blog.csdnimg.cn/20190708121014780.png" alt><br> 该config文件其他地方可以看着改</p>
-<p> 其次找到博客目录下的 scaffolds文件夹<br> <img src="https://img-blog.csdnimg.cn/2019070811502768.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VyaHVvYnVlcg==,size_16,color_FFFFFF,t_70" alt><br> 找到 post.md并编辑<br> <img src="https://img-blog.csdnimg.cn/20190708115128130.png" alt><br> 将内容修改为：</p>
+<p> <img src="https://i.loli.net/2019/07/08/5d2313694e52c99194.png" alt><br> 该config文件其他地方可以看着改</p>
+<p> 其次找到博客目录下的 scaffolds文件夹<br> <img src="https://i.loli.net/2019/07/08/5d23136c0ce8b14928.png" alt><br> 找到 post.md并编辑<br> <img src="https://i.loli.net/2019/07/08/5d23136eeba5668540.png" alt><br> 将内容修改为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories: </span><br><span class="line">tags:</span><br><span class="line">mp3: </span><br><span class="line">cover: </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
-<p> <img src="https://img-blog.csdnimg.cn/20190708120023994.png" alt><br> 然后创建分类页：</p>
+<p> <img src="https://i.loli.net/2019/07/08/5d2313729060636958.png" alt><br> 然后创建分类页：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
 
-<p> 打开创建的categories下的index.md修改为：<br> <img src="https://img-blog.csdnimg.cn/2019070812251292.png" alt><br> 创建标签页</p>
+<p> 打开创建的categories下的index.md修改为：<br> <img src="https://i.loli.net/2019/07/08/5d231376b9aec56764.png" alt><br> 创建标签页</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
 
-<p> 打开创建的tags下的index.md修改为：<br> <img src="https://img-blog.csdnimg.cn/20190708122753155.png" alt><br> 创建 whoami（介绍自己页面，可以删了）</p>
+<p> 打开创建的tags下的index.md修改为：<br> <img src="https://s2.ax1x.com/2019/07/08/ZrbPiQ.png" alt><br> 创建 whoami（介绍自己页面，可以删了）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page whoami</span><br></pre></td></tr></table></figure>
 
-<p> <a href="http://xn--whoamiindex-iq8qj63b917bsca492e0u7fha.md" target="_blank" rel="noopener">打开创建的whoami下的index.md</a>，可以写写你的介绍之类的。</p>
+<p> 打开创建的whoami下的index.md，可以写写你的介绍之类的。</p>
 <p> 接下来给hexo添加rss<br> 在命令行下输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
 
 <p> 完成后可以添加两篇文章看看效果(文章在source文件夹下的_posts中)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n “first”   #创建名为first的文章，可以多创建几篇</span><br></pre></td></tr></table></figure>
 
-<p> <img src="https://img-blog.csdnimg.cn/20190708124230200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VyaHVvYnVlcg==,size_16,color_FFFFFF,t_70" alt><br> 创建完文章后，可以用marhdown的文法写文章。</p>
-<p> 完成后用  <code>hexo s</code> 命令来测试一下<br> <img src="https://img-blog.csdnimg.cn/20190708124248277.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VyaHVvYnVlcg==,size_16,color_FFFFFF,t_70" alt><br> <img src="https://img-blog.csdnimg.cn/20190708124257799.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VyaHVvYnVlcg==,size_16,color_FFFFFF,t_70" alt><br> 这样就行了，但是其他像gittalk评论还没设置，下一篇讲！</p>
+<p> <img src="https://s2.ax1x.com/2019/07/08/Zrbkzn.png" alt><br> 创建完文章后，可以用marhdown的文法写文章。</p>
+<p> 完成后用  <code>hexo s</code> 命令来测试一下<br> <img src="https://s2.ax1x.com/2019/07/08/ZrbEMq.png" alt><br> <img src="https://s2.ax1x.com/2019/07/08/ZrbVs0.png" alt><br> 这样就行了，但是其他像gittalk评论还没设置，下一篇讲！</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
