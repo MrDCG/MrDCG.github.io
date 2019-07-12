@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2019-07-10T12:45:01.893Z</updated>
+  <updated>2019-07-12T12:41:32.415Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个很好的免费的CDN平台--jsDelivr</title>
+    <link href="https://mrdcg.github.io/2019/07/12/%E4%B8%80%E4%B8%AA%E5%BE%88%E5%A5%BD%E7%9A%84%E5%85%8D%E8%B4%B9%E7%9A%84CDN%E5%B9%B3%E5%8F%B0--jsDelivr/"/>
+    <id>https://mrdcg.github.io/2019/07/12/一个很好的免费的CDN平台--jsDelivr/</id>
+    <published>2019-07-12T12:22:31.000Z</published>
+    <updated>2019-07-12T12:41:32.415Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、什么是CDN&quot;&gt;&lt;a href=&quot;#1、什么是CDN&quot; class=&quot;headerlink&quot; title=&quot;1、什么是CDN&quot;&gt;&lt;/a&gt;1、什么是CDN&lt;/h2&gt;&lt;p&gt;CDN的全称是Content Delivery
+        
+      
+    
+    </summary>
+    
+      <category term="CDN" scheme="https://mrdcg.github.io/categories/CDN/"/>
+    
+    
+      <category term="互联网" scheme="https://mrdcg.github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
+    
+      <category term="技术" scheme="https://mrdcg.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo添加live2d看板娘和不蒜子访问统计</title>
