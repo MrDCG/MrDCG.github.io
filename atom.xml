@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2019-07-15T10:36:42.003Z</updated>
+  <updated>2019-07-16T10:46:29.955Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>心态炸裂随笔</title>
+    <link href="https://mrdcg.github.io/2019/07/16/%E5%BF%83%E6%80%81%E7%82%B8%E8%A3%82%E9%9A%8F%E7%AC%94/"/>
+    <id>https://mrdcg.github.io/2019/07/16/心态炸裂随笔/</id>
+    <published>2019-07-16T10:41:31.000Z</published>
+    <updated>2019-07-16T10:46:29.955Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;心态炸裂1–卸载JDK&quot;&gt;&lt;a href=&quot;#心态炸裂1–卸载JDK&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="心态炸裂随笔" scheme="https://mrdcg.github.io/categories/%E5%BF%83%E6%80%81%E7%82%B8%E8%A3%82%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="https://mrdcg.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>一个很好的免费的CDN平台--jsDelivr</title>
