@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2019-07-17T12:36:01.256Z</updated>
+  <updated>2019-07-18T12:28:45.382Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>个人简历HTML版</title>
+    <link href="https://mrdcg.github.io/2019/07/18/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86HTML%E7%89%88/"/>
+    <id>https://mrdcg.github.io/2019/07/18/个人简历HTML版/</id>
+    <published>2019-07-18T11:41:31.000Z</published>
+    <updated>2019-07-18T12:28:45.382Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;个人简历HTML&quot;&gt;&lt;a href=&quot;#个人简历HTML&quot; class=&quot;headerlink&quot; title=&quot;个人简历HTML&quot;&gt;&lt;/a&gt;个人简历HTML&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="简历" scheme="https://mrdcg.github.io/categories/%E7%AE%80%E5%8E%86/"/>
+    
+    
+      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
+    
+      <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>简单的注册页面</title>
     <link href="https://mrdcg.github.io/2019/07/17/%E7%AE%80%E5%8D%95%E7%9A%84%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/"/>
     <id>https://mrdcg.github.io/2019/07/17/简单的注册页面/</id>
     <published>2019-07-17T10:41:31.000Z</published>
-    <updated>2019-07-17T12:36:01.256Z</updated>
+    <updated>2019-07-17T12:45:35.192Z</updated>
     
     <summary type="html">
     
@@ -513,32 +541,6 @@
     
     
       <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>上传文件到GitHub上的两种方法（纯新手可以看看）</title>
-    <link href="https://mrdcg.github.io/2019/07/07/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0GitHub%E4%B8%8A%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%88%E7%BA%AF%E6%96%B0%E6%89%8B%E5%8F%AF%E4%BB%A5%E7%9C%8B%E7%9C%8B%EF%BC%89/"/>
-    <id>https://mrdcg.github.io/2019/07/07/上传文件到GitHub上的两种方法（纯新手可以看看）/</id>
-    <published>2019-07-07T09:27:56.000Z</published>
-    <updated>2019-07-08T08:56:00.845Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、GitHub官网上传&quot;&gt;&lt;a href=&quot;#一、GitHub官网上传&quot; class=&quot;headerlink&quot; title=&quot;一、GitHub官网上传&quot;&gt;&lt;/a&gt;&lt;a href&gt;&lt;/a&gt;一、GitHub官网上传&lt;/h2&gt;&lt;p&gt;
-        
-      
-    
-    </summary>
-    
-      <category term="GitHub" scheme="https://mrdcg.github.io/categories/GitHub/"/>
-    
-    
-      <category term="操作" scheme="https://mrdcg.github.io/tags/%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
