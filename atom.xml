@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2019-07-18T12:28:45.382Z</updated>
+  <updated>2019-07-27T05:00:58.836Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS简单总结</title>
+    <link href="https://mrdcg.github.io/2019/07/27/CSS%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/"/>
+    <id>https://mrdcg.github.io/2019/07/27/CSS简单总结/</id>
+    <published>2019-07-27T05:00:00.000Z</published>
+    <updated>2019-07-27T05:00:58.836Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/07/27/5d3bd9b394a4673873.jpg&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网页" scheme="https://mrdcg.github.io/categories/%E7%BD%91%E9%A1%B5/"/>
+    
+    
+      <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML简单总结</title>
+    <link href="https://mrdcg.github.io/2019/07/27/HTML%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/"/>
+    <id>https://mrdcg.github.io/2019/07/27/HTML简单总结/</id>
+    <published>2019-07-27T04:55:31.000Z</published>
+    <updated>2019-07-27T04:57:52.334Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/07/27/5d3bd9af52a5385462.jpg&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网页" scheme="https://mrdcg.github.io/categories/%E7%BD%91%E9%A1%B5/"/>
+    
+    
+      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
+    
+  </entry>
   
   <entry>
     <title>个人简历HTML版</title>
@@ -472,58 +524,6 @@
     <id>https://mrdcg.github.io/2019/07/07/Highcharts之实时柱状图/</id>
     <published>2019-07-07T09:30:26.000Z</published>
     <updated>2019-07-07T10:01:14.695Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、导入highcharts-js和jQuery-js&quot;&gt;&lt;a href=&quot;#1、导入highcharts-js和jQuery-js&quot; class=&quot;headerlink&quot; title=&quot;1、导入highcharts.js和jQuery.js&quot;&gt;&lt;/a&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Javascript" scheme="https://mrdcg.github.io/categories/Javascript/"/>
-    
-    
-      <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Highcharts之实时饼状图</title>
-    <link href="https://mrdcg.github.io/2019/07/07/Highcharts%E4%B9%8B%E5%AE%9E%E6%97%B6%E9%A5%BC%E7%8A%B6%E5%9B%BE/"/>
-    <id>https://mrdcg.github.io/2019/07/07/Highcharts之实时饼状图/</id>
-    <published>2019-07-07T09:30:08.000Z</published>
-    <updated>2019-07-07T11:54:11.607Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、导入highcharts-js和jQuery-js&quot;&gt;&lt;a href=&quot;#1、导入highcharts-js和jQuery-js&quot; class=&quot;headerlink&quot; title=&quot;1、导入highcharts.js和jQuery.js&quot;&gt;&lt;/a&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Javascript" scheme="https://mrdcg.github.io/categories/Javascript/"/>
-    
-    
-      <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hightcharts之实时曲线图</title>
-    <link href="https://mrdcg.github.io/2019/07/07/Hightcharts%E4%B9%8B%E5%AE%9E%E6%97%B6%E6%9B%B2%E7%BA%BF%E5%9B%BE/"/>
-    <id>https://mrdcg.github.io/2019/07/07/Hightcharts之实时曲线图/</id>
-    <published>2019-07-07T09:29:20.000Z</published>
-    <updated>2019-07-07T11:58:43.120Z</updated>
     
     <summary type="html">
     
