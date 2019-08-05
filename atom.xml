@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2019-07-27T05:00:58.836Z</updated>
+  <updated>2019-08-05T11:54:50.965Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信UI界面手机版</title>
+    <link href="https://mrdcg.github.io/2019/08/05/%E5%BE%AE%E4%BF%A1UI%E7%95%8C%E9%9D%A2%E6%89%8B%E6%9C%BA%E7%89%88/"/>
+    <id>https://mrdcg.github.io/2019/08/05/微信UI界面手机版/</id>
+    <published>2019-08-05T11:51:31.000Z</published>
+    <updated>2019-08-05T11:54:50.965Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近按照微信界面写了个假微信。。。&lt;br&gt;界面中矢量图标来自阿里矢量图标库&lt;br&gt;微信UI界面GitHub下载地址：&lt;a href=&quot;https://github.com/MrDCG/small_project&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="UI" scheme="https://mrdcg.github.io/categories/UI/"/>
+    
+    
+      <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
+    
+      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS简单总结</title>
@@ -506,32 +534,6 @@
         
         
           &lt;p&gt;  &lt;img src=&quot;https://i.loli.net/2019/07/07/5d21d9ab6811d87528.gif&quot; alt=&quot;窗口切换&quot;&gt;&lt;br&gt; &lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Javascript" scheme="https://mrdcg.github.io/categories/Javascript/"/>
-    
-    
-      <category term="插件" scheme="https://mrdcg.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Highcharts之实时柱状图</title>
-    <link href="https://mrdcg.github.io/2019/07/07/Highcharts%E4%B9%8B%E5%AE%9E%E6%97%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE/"/>
-    <id>https://mrdcg.github.io/2019/07/07/Highcharts之实时柱状图/</id>
-    <published>2019-07-07T09:30:26.000Z</published>
-    <updated>2019-07-07T10:01:14.695Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、导入highcharts-js和jQuery-js&quot;&gt;&lt;a href=&quot;#1、导入highcharts-js和jQuery-js&quot; class=&quot;headerlink&quot; title=&quot;1、导入highcharts.js和jQuery.js&quot;&gt;&lt;/a&gt;&lt;a
         
       
     
