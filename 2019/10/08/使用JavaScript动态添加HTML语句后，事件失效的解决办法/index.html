@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>闲看花开 静待花落</title>
+    <title>JavaScript添加HTML语句时事件失效问题 - 闲看花开 静待花落</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="贰货不二,"> 
-    
+    <meta name="description" content="一、问题分析当我们使用js语法向页面中添加html语句时，经常会出现添加的html语句中绑定的事件无法执行，这是因为当js,css加载后才添加的html语句，这样在js事件加载时去找绑定的选择器（i,"> 
     <meta name="author" content="贰货不二"> 
     <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -32,23 +32,78 @@
 <body class="loading">
     <span id="config-title" style="display:none">闲看花开 静待花落</span>
     <div id="loader"></div>
-    <div id="single" class="page">
-    <div id="top">
-        <a class="icon-left image-icon" href="javascript:history.back()"></a>
+    <div id="single">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">JavaScript添加HTML语句时事件失效问题</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
     </div>
-    <div class="section">
-        <div class="article">
-            <div class="main">
-                <div class="content">
-                
-                    <div class="set">
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/博客网站/">博客网站</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页/">网页</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CDN/">CDN</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/Javascript/">Javascript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub/">GitHub</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/心态炸裂随笔/">心态炸裂随笔</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/简历/">简历</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发/">开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul>
+    <div class="scrollbar"></div>
 </div>
 
-                 
-                </div>
-            </div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JavaScript添加HTML语句时事件失效问题</h1>
+        <div class="stuff">
+            <span>十月 08, 2019</span>
+
+            <span>
+   阅读数(请刷新)<span id="busuanzi_value_page_pv"></span>
+</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+
+
         </div>
+        <div class="content markdown">
+            <h2 id="一、问题分析"><a href="#一、问题分析" class="headerlink" title="一、问题分析"></a>一、问题分析</h2><p>当我们使用js语法向页面中添加html语句时，经常会出现添加的html语句中绑定的事件无法执行，这是因为当js,css加载后才添加的html语句，这样在js事件加载时去找绑定的选择器（id,class），发现并不存在，因此点击事件会失效。</p>
+<h2 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h2><p>使用<a href="https://www.w3school.com.cn/jquery/event_delegate.asp" target="_blank" rel="noopener">jQuery 事件 - delegate() 方法</a><br>使用 delegate() 方法的事件处理程序适用于当前或未来的元素（比如由脚本创建的新元素）。<br>语法<br>$(selector).delegate(childSelector,event,data,function)<br><img src="https://i.loli.net/2019/10/08/UJ4AQyvO3rRxaqk.png" alt><br>举例：<br>点击事件失效：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".x-show"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">"111"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>点击事件有效：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"body"</span>).delegate(<span class="string">'.x-show'</span>,<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="string">"111"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/1301575218.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+        
+    </div>
+
+    
+    
+</div>
+
     </div>
 </div>
 
