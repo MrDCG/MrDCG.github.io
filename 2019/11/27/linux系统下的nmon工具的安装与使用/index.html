@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>linux系统下的nmon工具的安装与使用 - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="1、简介Nmon 是一个监控系统的 CPU、内存、网络、硬盘、文件系统、NFS、高耗进程、资源和 IBM Power 系统的微分区信息的工具。
+2、下载工具2.1、nmon下载找到适合自己系统的nm,"> 
+    <meta name="author" content="贰货不二"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">linux系统下的nmon工具的安装与使用</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">linux系统下的nmon工具的安装与使用</h1>
+        <div class="stuff">
+            <span>十一月 27, 2019</span>
+
+            <span>
+   阅读数(请刷新)<span id="busuanzi_value_page_pv"></span>
+</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/nmon/">nmon</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/性能测试/">性能测试</a></li></ul>
+
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><p>Nmon 是一个监控系统的 CPU、内存、网络、硬盘、文件系统、NFS、高耗进程、资源和 IBM Power 系统的微分区信息的工具。</p>
+<h3 id="2、下载工具"><a href="#2、下载工具" class="headerlink" title="2、下载工具"></a>2、下载工具</h3><h4 id="2-1、nmon下载"><a href="#2-1、nmon下载" class="headerlink" title="2.1、nmon下载"></a>2.1、nmon下载</h4><p>找到适合自己系统的nmon版本安装，我的是centos6下载 nmon16e_mpginc.tar.gz<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127170352916.png" alt><br><a href="http://nmon.sourceforge.net/pmwiki.php?n=Site.Download" target="_blank" rel="noopener">nmon工具下载</a></p>
+<h4 id="2-2、nmon-analyser下载"><a href="#2-2、nmon-analyser下载" class="headerlink" title="2.2、nmon_analyser下载"></a>2.2、nmon_analyser下载</h4><p>nmon_analyser工具是一款生成性能报告的免费工具，我们会使用它将nmon监控得到的信息生成性能报告。<br><a href="http://nmon.sourceforge.net/pmwiki.php?n=Site.Nmon-Analyser" target="_blank" rel="noopener">nmon_analyser工具下载</a><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127170933672.png" alt><br><strong>下载后解压得到  nmon analyser v65.xlsm  文件</strong></p>
+<h4 id="2-3、xshell6下载"><a href="#2-3、xshell6下载" class="headerlink" title="2.3、xshell6下载"></a>2.3、xshell6下载</h4><p>需要将windows下的文件上传到linux系统会用到xshell6工具，xshell6工具就不多做介绍。<br><a href="https://www.netsarang.com/zh/free-for-home-school/" target="_blank" rel="noopener">xshell6工具免费下载</a></p>
+<h3 id="3、nmon安装使用"><a href="#3、nmon安装使用" class="headerlink" title="3、nmon安装使用"></a>3、nmon安装使用</h3><h4 id="3-1、将下载好的nmon工具发送到linux系统"><a href="#3-1、将下载好的nmon工具发送到linux系统" class="headerlink" title="3.1、将下载好的nmon工具发送到linux系统"></a>3.1、将下载好的nmon工具发送到linux系统</h4><p>1、打开xshell工具<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127171606203.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127171814143.png%3E" alt><br>linux系统查询IP地址命令 ifconfig -a<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127171952253.png" alt><br>添加linux用户名和密码方便连接linux系统（避免以后每次连接都需要填写用户名和密码）<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127172023200.png" alt><br>完成后连接<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127172218865.png" alt><br>2、在Linux主机上，安装上传下载工具包rz及sz<br> 输入命令查询工具包：<code>yum provides */rz</code><br> 安装工具包：<code>yum install -y lrzsz</code><br> 3、将nmon工具发送到linux系统<br> 在xshell工具中输入 <code>rz</code> 命令弹出选择框<br> <img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127172812724.png" alt><br> 选择 nmon16e_mpginc.tar.gz 发送<br> 发送完成后在linux对应文件夹下可以找见该文件，我这里是在root目录下发送的，所以linux系统的root目录下能找见该文件<br> <img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127173051753.png" alt></p>
+<h4 id="3-2、nmon工具解压安装"><a href="#3-2、nmon工具解压安装" class="headerlink" title="3.2、nmon工具解压安装"></a>3.2、nmon工具解压安装</h4><p>1、解压<br>进入 nmon16e_mpginc.tar.gz 所在目录输入解压命令<code>tar -zxvf  nmon16e_mpginc.tar.gz</code><br>2、将  nmon_x86_64_centos6 拷贝并重命名<br><code>ls</code>命令查看当前目录文件找到 nmon_x86_64_centos6 文件<br>输入命令 <code>cp nmon_x86_64_centos6 /usr/local/bin/nmon</code> 将文件拷贝到bin目录下并重命名为nmon<br>3、授权：输入命令<code>cd /usr/local/bin chmod 777 nmon</code> （777 – 所有用户都有读、写、执行权限。）<br>4、启动：在 /usr/local/bin目录下输入命令<code>./nmon</code> 启动nmon<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127184240562.png" alt><br>安装启动成功。<br>5、实时监控系统信息：<br>主要命令：<br>输入c可显示CPU的信息，<br>输入m显示内存使用信息，<br>输入n显示网络信息，<br>输入d可以查看磁盘信息，<br>输入t可以查看系统的进程信息<br>输入q退出<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127184709782.png" alt></p>
+<h3 id="4、监控数据采集"><a href="#4、监控数据采集" class="headerlink" title="4、监控数据采集"></a>4、监控数据采集</h3><h4 id="1、信息采集"><a href="#1、信息采集" class="headerlink" title="1、信息采集"></a>1、信息采集</h4><p>采集数据信息指令：<code>nmon -s1 -c60 -f -m /home/nmon</code><br>参数说明：<br>-s1        每隔n秒抽样一次，这里为1秒<br>-c60      取出多少个抽样数量，这里为60，即监控=1*60/60=1分钟<br>-f           按标准格式输出文件名称：<hostname>_YYMMDD_HHMM.nmon<br>-m         指定监控文件的存放目录，-m后跟指定目录<br>该命令启动后，会在nmon所在目录下生成监控文件，并持续写入资源数据。<br>使用 <code>ps-ef |grep nmon</code>  指令查找 nmon 进程id，然后使用<code>kill 进程id</code> 关闭监控进程</hostname></p>
+<p>采集到的数据：<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/201911271903194021.png" alt></p>
+<h4 id="2、生成图形化报表"><a href="#2、生成图形化报表" class="headerlink" title="2、生成图形化报表"></a>2、生成图形化报表</h4><p>1、需要将采集到的 .nmon文件 转化成 .csv 文件<br>在 .nmon文件 所在目录下输入指令：<code>sort hadoop1_191127_1627.nmon &gt;hadoop1_191127_1627.csv</code><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127190851209.png" alt><br>2、将 .csv文件发送到Windows系统<br>在xshell工具中进入到保存 .csv文件的目录(我的就是 <code>cd /home/nmon</code>目录)，<code>ls</code>查看当前目录下的所有文件<br>然后在xshell6工具中输入指令(tab 补全命令)：<code>sz hadoop1_191127_1627.csv</code></p>
+<p>选择文件存放位置：<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127191535619.png" alt><br>3、生成报表<br>打开2.2步解压得到的  nmon analyser v65.xlsm 文件，<strong>启用宏（必须）</strong><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127191920405.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2019112719193862.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127191957799.png" alt><br>启用宏之后，点击 Analyze nmon data 按钮<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127192108841.png" alt><br>选择 .csv 文件<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127192215257.png" alt><br>最后生成 .xlsx 文件，选择存放位置<br>打开就是图形报表<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20191127192440547.png" alt></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/1363948882.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+        
+    </div>
+
+    
+    
+</div>
+
+    </div>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
