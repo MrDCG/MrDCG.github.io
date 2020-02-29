@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2019-11-27T12:03:52.236Z</updated>
+  <updated>2020-02-29T04:41:14.647Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaWeb项目实现短信验证码</title>
+    <link href="https://mrdcg.github.io/2020/02/29/JavaWeb%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
+    <id>https://mrdcg.github.io/2020/02/29/JavaWeb项目实现短信验证码/</id>
+    <published>2020-02-29T04:58:31.000Z</published>
+    <updated>2020-02-29T04:41:14.647Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、阿里云开通短信服务&quot;&gt;&lt;a href=&quot;#一、阿里云开通短信服务&quot; class=&quot;headerlink&quot; title=&quot;一、阿里云开通短信服务&quot;&gt;&lt;/a&gt;一、阿里云开通短信服务&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.aliyun.com/&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://mrdcg.github.io/categories/Java/"/>
+    
+    
+      <category term="Java后端" scheme="https://mrdcg.github.io/tags/Java%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>linux系统下的nmon工具的安装与使用</title>
@@ -208,8 +234,8 @@
   
   <entry>
     <title>简单的注册页面</title>
-    <link href="https://mrdcg.github.io/2019/07/17/%E7%AE%80%E5%8D%95%E7%9A%84%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/"/>
-    <id>https://mrdcg.github.io/2019/07/17/简单的注册页面/</id>
+    <link href="https://mrdcg.github.io/2019/07/17/%E7%AE%80%E5%8D%95%E7%9A%84%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>https://mrdcg.github.io/2019/07/17/简单的注册页面 - 副本/</id>
     <published>2019-07-17T10:41:31.000Z</published>
     <updated>2019-07-27T05:02:46.848Z</updated>
     
@@ -238,8 +264,8 @@
   
   <entry>
     <title>简单的注册页面</title>
-    <link href="https://mrdcg.github.io/2019/07/17/%E7%AE%80%E5%8D%95%E7%9A%84%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>https://mrdcg.github.io/2019/07/17/简单的注册页面 - 副本/</id>
+    <link href="https://mrdcg.github.io/2019/07/17/%E7%AE%80%E5%8D%95%E7%9A%84%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/"/>
+    <id>https://mrdcg.github.io/2019/07/17/简单的注册页面/</id>
     <published>2019-07-17T10:41:31.000Z</published>
     <updated>2019-07-27T05:02:46.848Z</updated>
     
@@ -522,32 +548,6 @@
     </summary>
     
       <category term="jQuery" scheme="https://mrdcg.github.io/categories/jQuery/"/>
-    
-    
-      <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java基础之带标签的break和continue</title>
-    <link href="https://mrdcg.github.io/2019/07/07/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%B8%A6%E6%A0%87%E7%AD%BE%E7%9A%84break%E5%92%8Ccontinue/"/>
-    <id>https://mrdcg.github.io/2019/07/07/Java基础之带标签的break和continue/</id>
-    <published>2019-07-07T09:32:18.000Z</published>
-    <updated>2019-07-07T11:45:49.744Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;标签是指后面跟一个冒号的标识符，例如：“lable：”&quot;&gt;&lt;a href=&quot;#标签是指后面跟一个冒号的标识符，例如：“lable：”&quot; class=&quot;headerlink&quot; title=&quot;标签是指后面跟一个冒号的标识符，例如：“lable：”&quot;&gt;&lt;/a&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="https://mrdcg.github.io/categories/Java/"/>
     
     
       <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>

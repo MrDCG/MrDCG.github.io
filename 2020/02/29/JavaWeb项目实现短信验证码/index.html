@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JavaWeb项目实现短信验证码 - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="一、阿里云开通短信服务阿里云
+设置签名
+添加短信模板
+签名和模板都需要审核，大概两个小时左右（周末也审核）。获取 用户AccessKey
+二、代码1、pom.xml中添加依赖123456789101,"> 
+    <meta name="author" content="贰货不二"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">JavaWeb项目实现短信验证码</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JavaWeb项目实现短信验证码</h1>
+        <div class="stuff">
+            <span>二月 29, 2020</span>
+
+            <span>
+   阅读数(请刷新)<span id="busuanzi_value_page_pv"></span>
+</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Java后端/">Java后端</a></li></ul>
+
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="一、阿里云开通短信服务"><a href="#一、阿里云开通短信服务" class="headerlink" title="一、阿里云开通短信服务"></a>一、阿里云开通短信服务</h2><p><a href="https://www.aliyun.com/" target="_blank" rel="noopener">阿里云</a><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200229113058257.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200229103533682.png" alt></p>
+<h3 id="设置签名"><a href="#设置签名" class="headerlink" title="设置签名"></a>设置签名</h3><p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200229104013458.png" alt></p>
+<h3 id="添加短信模板"><a href="#添加短信模板" class="headerlink" title="添加短信模板"></a>添加短信模板</h3><p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020022910425145.png" alt></p>
+<h5 id="签名和模板都需要审核，大概两个小时左右（周末也审核）。"><a href="#签名和模板都需要审核，大概两个小时左右（周末也审核）。" class="headerlink" title="签名和模板都需要审核，大概两个小时左右（周末也审核）。"></a>签名和模板都需要审核，大概两个小时左右（周末也审核）。</h5><h3 id="获取-用户AccessKey"><a href="#获取-用户AccessKey" class="headerlink" title="获取 用户AccessKey"></a>获取 用户AccessKey</h3><p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200229104522500.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200229104736335.png" alt></p>
+<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><h5 id="1、pom-xml中添加依赖"><a href="#1、pom-xml中添加依赖" class="headerlink" title="1、pom.xml中添加依赖"></a>1、pom.xml中添加依赖</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 阿里云 --&gt;</span><br><span class="line">	&lt;!-- https:<span class="comment">//mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-core --&gt;</span></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.aliyun&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;aliyun-java-sdk-core&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.4.3&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">	 &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.aliyun&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;aliyun-java-sdk-dysmsapi&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.1.0&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、创建SendSMSUtil类"><a href="#2、创建SendSMSUtil类" class="headerlink" title="2、创建SendSMSUtil类"></a>2、创建SendSMSUtil类</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendSMSUtil</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 你的accessKeyId</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String accessKeyId = <span class="string">"你的accessKeyId"</span>;</span><br><span class="line">    <span class="comment">// 你的accessKeySecret</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String accessKeySecret = <span class="string">"你的accessKeySecret"</span>;</span><br><span class="line">    <span class="comment">// 上面设置的签名</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String signName = <span class="string">"签名"</span>;<span class="comment">// </span></span><br><span class="line">    <span class="comment">// 短信模板，模板code</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String templateCode = <span class="string">"模版CODE"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> code;</span><br><span class="line">    <span class="comment">// phoneNumber必须当做参数传入</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">senSMSUtil</span><span class="params">(String phoneNumber)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 设置超时时间-可自行调整</span></span><br><span class="line">        System.setProperty(<span class="string">"sun.net.client.defaultConnectTimeout"</span>, <span class="string">"10000"</span>);</span><br><span class="line">        System.setProperty(<span class="string">"sun.net.client.defaultReadTimeout"</span>, <span class="string">"10000"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化ascClient需要的几个参数</span></span><br><span class="line">        <span class="keyword">final</span> String product = <span class="string">"Dysmsapi"</span>;<span class="comment">// 短信API产品名称（短信产品名固定，无需修改）</span></span><br><span class="line">        <span class="keyword">final</span> String domain = <span class="string">"dysmsapi.aliyuncs.com"</span>;<span class="comment">// 短信API产品域名（接口地址固定，无需修改）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化ascClient,暂时不支持多region（请勿修改）</span></span><br><span class="line">        IClientProfile profile = DefaultProfile.getProfile(<span class="string">"cn-hangzhou"</span>, accessKeyId, accessKeySecret);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            DefaultProfile.addEndpoint(<span class="string">"cn-hangzhou"</span>, <span class="string">"cn-hangzhou"</span>, product, domain);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClientException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        IAcsClient acsClient = <span class="keyword">new</span> DefaultAcsClient(profile);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 组装请求对象</span></span><br><span class="line">        SendSmsRequest request = <span class="keyword">new</span> SendSmsRequest();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用post提交</span></span><br><span class="line">        request.setMethod(MethodType.POST);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 必填:待发送手机号。支持以逗号分隔的形式进行批量调用，批量上限为1000个手机号码,批量调用相对于单条调用及时性稍有延迟,</span></span><br><span class="line">        <span class="comment">// 验证码类型的短信推荐使用单条调用的方式；发送国际/港澳台消息时，接收号码格式为国际区号+号码，如“85200000000”</span></span><br><span class="line">        request.setPhoneNumbers(phoneNumber);</span><br><span class="line"></span><br><span class="line">        request.setSignName(signName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 必填:短信模板-可在短信控制台中找到，发送国际/港澳台消息时，请使用国际/港澳台短信模版</span></span><br><span class="line">        request.setTemplateCode(templateCode);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//随机生成六位验证码</span></span><br><span class="line">        code = (<span class="keyword">int</span>) ((Math.random() * <span class="number">9</span> + <span class="number">1</span>) * <span class="number">100000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 可选:模板中的变量替换JSON串,如模板内容为"亲爱的$&#123;name&#125;,您的验证码为$&#123;code&#125;"时,此处的值为</span></span><br><span class="line">        <span class="comment">// 友情提示:如果JSON中需要带换行符,请参照标准的JSON协议对换行符的要求,比如短信内容中包含\r\n的情况在JSON中需要表示成\\r\\n,否则会导致JSON在服务端解析失败</span></span><br><span class="line">        request.setTemplateParam(<span class="string">"&#123;code:"</span> + code + <span class="string">"&#125;"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 请求失败这里会抛ClientException异常</span></span><br><span class="line">        SendSmsResponse sendSmsResponse = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            sendSmsResponse = acsClient.getAcsResponse(request);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClientException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"请求失败"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">assert</span> sendSmsResponse.getCode() != <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">// 获取错误码，如果你账户没钱会返回isv.AMOUNT_NOT_ENOUGH，表示账户没钱，充点钱就行了</span></span><br><span class="line">        System.out.println(sendSmsResponse.getCode());</span><br><span class="line">        <span class="keyword">if</span> (sendSmsResponse.getCode() == <span class="keyword">null</span> || !sendSmsResponse.getCode().equals(<span class="string">"OK"</span>)) &#123;<span class="comment">// 发送不成功</span></span><br><span class="line">            <span class="keyword">return</span> sendSmsResponse.getMessage();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 请求成功</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"OK"</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、controller层（Servlet层）"><a href="#3、controller层（Servlet层）" class="headerlink" title="3、controller层（Servlet层）"></a>3、controller层（Servlet层）</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/sendSMS"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SendSMS</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">		PrintWriter out = <span class="keyword">null</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			out = response.getWriter();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		String phoneNumber = request.getParameter(<span class="string">"phone"</span>);</span><br><span class="line">		System.out.println(phoneNumber);</span><br><span class="line">		</span><br><span class="line">        <span class="comment">// 发送短信</span></span><br><span class="line">        SendSMSUtil sendSMS = <span class="keyword">new</span> SendSMSUtil();</span><br><span class="line">        String result = sendSMS.senSMSUtil(phoneNumber);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result == <span class="keyword">null</span> || !result.equals(<span class="string">"OK"</span>)) &#123;<span class="comment">// 发送不成功</span></span><br><span class="line">            System.out.println(<span class="string">"失败"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取验证码</span></span><br><span class="line">        <span class="keyword">int</span> code = sendSMS.getCode();</span><br><span class="line">        out.print(code);</span><br><span class="line">        <span class="comment">// 将数据存入SESSION</span></span><br><span class="line">        request.getSession().setAttribute(<span class="string">"checkCode"</span>, code);</span><br><span class="line">        <span class="comment">// 将验证码生成时间存入SESSION，若超过五分钟则不通过校验</span></span><br><span class="line">     <span class="comment">// 将验证码生成时间存入SESSION，若超过五分钟则不通过校验</span></span><br><span class="line">        request.getSession().setAttribute(<span class="string">"createTime"</span>, System.currentTimeMillis());</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 验证码检测</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/checkCode"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkCode</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">		HttpSession session = request.getSession();</span><br><span class="line">		response.setContentType(<span class="string">"text/html;charset=utf8"</span>);</span><br><span class="line">		PrintWriter out = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			out = response.getWriter();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		String checkCode = request.getParameter(<span class="string">"checkCode"</span>);</span><br><span class="line">		String code = String.valueOf(session.getAttribute(<span class="string">"checkCode"</span>));</span><br><span class="line">		<span class="keyword">if</span> (checkCode.equals(code)) &#123;</span><br><span class="line">			out.print(<span class="string">"验证码正确"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			out.print(<span class="string">"验证码错误"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、前端HTML"><a href="#4、前端HTML" class="headerlink" title="4、前端HTML"></a>4、前端HTML</h5><p>仅做测试用自己完善</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;</span><br><span class="line">	&lt;input name=<span class="string">"code"</span> id=<span class="string">"code"</span> style=<span class="string">"width: 36%; height: 40px;"</span> type=<span class="string">"text"</span></span><br><span class="line">	 <span class="class"><span class="keyword">class</span></span>=<span class="string">"layui-input"</span>&gt;</span><br><span class="line">	&lt;input <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-default"</span> id=<span class="string">"btn"</span> name=<span class="string">"btn"</span> value=<span class="string">"发送验证码"</span></span><br><span class="line">	style=<span class="string">"width: 45%; height: 33px; margin-right:44px;margin-top:4px;"</span> </span><br><span class="line">	onclick=<span class="string">"sendMessage()"</span> /&gt;</span><br><span class="line">&lt;/span&gt;</span><br><span class="line">&lt;p style="color: #ec5042;margin-top:-17px" id="code_msg" &gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> InterValObj; <span class="comment">//timer变量，控制时间</span></span><br><span class="line">	<span class="keyword">var</span> count = <span class="number">60</span>; <span class="comment">//间隔函数，1秒执行</span></span><br><span class="line">	<span class="keyword">var</span> curCount;<span class="comment">//当前剩余秒数</span></span><br><span class="line">	<span class="keyword">var</span> sms = <span class="string">""</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">sendMessage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		curCount = count;</span><br><span class="line">		$(<span class="string">"#btn"</span>).attr(<span class="string">"disabled"</span>, <span class="string">"true"</span>);</span><br><span class="line">		$(<span class="string">"#btn"</span>).val(curCount + <span class="string">"秒后可重新发送"</span>);</span><br><span class="line">		InterValObj = <span class="built_in">window</span>.setInterval(SetRemainTime, <span class="number">1000</span>); <span class="comment">//启动计时器，1秒执行一次请求后台发送验证码 TODO</span></span><br><span class="line">		<span class="keyword">var</span> phone = $(<span class="string">"#phone"</span>).val();</span><br><span class="line">		<span class="keyword">var</span> str = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">if</span>(phone != <span class="string">""</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!(<span class="regexp">/^1[3456789]\d&#123;9&#125;$/</span>.test(phone)))&#123;</span><br><span class="line">				str = <span class="string">"手机号错误"</span>;</span><br><span class="line">                <span class="built_in">document</span>.getElementById(<span class="string">"cphone"</span>).innerText=str;</span><br><span class="line">				</span><br><span class="line">			&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">				str = <span class="string">"手机号可用"</span>;</span><br><span class="line">                <span class="built_in">document</span>.getElementById(<span class="string">"cphone"</span>).innerText=str;</span><br><span class="line">                <span class="comment">// ajax发送验证码请求</span></span><br><span class="line">				$.ajax(&#123;</span><br><span class="line">					url:<span class="string">"admin/sendSMS?phone="</span>+$(<span class="string">"#phone"</span>).val(),</span><br><span class="line">					success:<span class="function"><span class="keyword">function</span>(<span class="params">code</span>)</span>&#123;</span><br><span class="line">						sms=code;</span><br><span class="line">						alert(sms);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">			str = <span class="string">"手机号不能为空"</span>;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"cphone"</span>).innerText=str;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//timer处理函数</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">SetRemainTime</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (curCount == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="built_in">window</span>.clearInterval(InterValObj);<span class="comment">//停止计时器</span></span><br><span class="line">			$(<span class="string">"#btn"</span>).removeAttr(<span class="string">"disabled"</span>);<span class="comment">//启用按钮</span></span><br><span class="line">			$(<span class="string">"#btn"</span>).val(<span class="string">"重新发送验证码"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			curCount--;</span><br><span class="line">			$(<span class="string">"#btn"</span>).val(curCount + <span class="string">"秒后可重新发送"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">// 发送请求验证输入的验证码是否正确</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		$(<span class="string">"#code"</span>).blur(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			$.ajax(&#123;</span><br><span class="line">				url : <span class="string">"admin/checkCode?checkCode="</span> + $(<span class="string">"#code"</span>).val(),</span><br><span class="line"></span><br><span class="line">				success : <span class="function"><span class="keyword">function</span>(<span class="params">code_msg</span>) </span>&#123;</span><br><span class="line">					$(<span class="string">"#code_msg"</span>).html(code_msg);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="错误码（第一次很可能就是账户余额不足）："><a href="#错误码（第一次很可能就是账户余额不足）：" class="headerlink" title="错误码（第一次很可能就是账户余额不足）："></a>错误码（第一次很可能就是账户余额不足）：</h5><p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200229112118705.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200229112555779.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200229113206543.png" alt></p>
+<h4 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h4>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/28048822.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+        
+    </div>
+
+    
+    
+</div>
+
+    </div>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
