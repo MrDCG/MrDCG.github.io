@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>linux下搭建FastDFS文件服务器 - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="1.1、安装gcc环境FastDFS是C语言开发，安装FastDFS需要先下载源码，然后进行编译，编译需要gcc 环境，所以需要安装gcc环境打开xshell连接linux系统
+12# 查看gcc环,"> 
+    <meta name="author" content="贰货不二"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">linux下搭建FastDFS文件服务器</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">linux下搭建FastDFS文件服务器</h1>
+        <div class="stuff">
+            <span>三月 12, 2020</span>
+
+            <span>
+   阅读数(请刷新)<span id="busuanzi_value_page_pv"></span>
+</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/FastDFS/">FastDFS</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="1-1、安装gcc环境"><a href="#1-1、安装gcc环境" class="headerlink" title="1.1、安装gcc环境"></a>1.1、安装gcc环境</h3><p>FastDFS是C语言开发，安装FastDFS需要先下载源码，然后进行编译，编译需要gcc 环境，所以需要安装gcc环境<br>打开xshell连接linux系统</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看gcc环境</span><br><span class="line">gcc -version</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装gcc环境</span><br><span class="line">yum -y install gcc-c++</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200311172412709.png" alt><br>安装FastDFS依赖的libevent库</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装libevent库</span><br><span class="line">yum -y install libevent</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2、上传安装文件到linux"><a href="#1-2、上传安装文件到linux" class="headerlink" title="1.2、上传安装文件到linux"></a>1.2、上传安装文件到linux</h3><p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020031117391959.png" alt><br>下载：<a href="https://pan.baidu.com/s/13cot80LmhNE8dUt1P-NUXA" target="_blank" rel="noopener">FastDFS安装文件</a><br>提取码：jndg<br>使用Xftp将文件传到linux下(/usr/local/FastDFS)<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200311185824454.png" alt><br>或者通过Xshell进入对应目录后使用<code>rz</code>命令传文件<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200311185944778.png" alt></p>
+<h3 id="1-3、安装libfastcommon"><a href="#1-3、安装libfastcommon" class="headerlink" title="1.3、安装libfastcommon"></a>1.3、安装libfastcommon</h3><p>libfastcommon包含了FastDFS运行所需要的一些基础库<br>进入刚才安装文件所在的盘符安装解压libfastcommon<br>执行以下指令</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 进入盘符</span><br><span class="line">cd /usr/local/FastDFS</span><br><span class="line"># 查看文件</span><br><span class="line">ll</span><br><span class="line"># 解压文件</span><br><span class="line">tar -zxf libfastcommon-<span class="number">1.0</span>.35.tar.gz</span><br><span class="line">cd libfastcommon-<span class="number">1.0</span>.35</span><br><span class="line">ll</span><br><span class="line"># 编译</span><br><span class="line">./make.sh</span><br><span class="line">./make.sh install</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200311191127907.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200311191320444.png" alt><br>libfastcommon安装好后，会自动将库文件拷贝至/usr/lib64下，由于FastDFS程序引用/usr/lib目录，所以需要将/usr/lib64下的库文件拷贝至/usr/lib下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lib64</span><br><span class="line"># 将文件拷贝至/usr/lib</span><br><span class="line">cp libfastcommon.so /usr/lib</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4、安装FastDFS-tracker-storage"><a href="#1-4、安装FastDFS-tracker-storage" class="headerlink" title="1.4、安装FastDFS(tracker+storage)"></a>1.4、安装FastDFS(tracker+storage)</h3><p>将tracker和storage安装在同一服务器下，正常情况应是分别安装</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/FastDFS</span><br><span class="line">tar -zxf FastDFS_v5.08.tar.gz</span><br><span class="line">cd FastDFS</span><br><span class="line">./make.sh</span><br><span class="line"># 安装</span><br><span class="line">./make.sh install</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200311193601629.png" alt><br>安装成功后将安装目录下的conf文件拷贝至/etc/fdfs下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/FastDFS/FastDFS/conf</span><br><span class="line">cp * /etc/fdfs</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-1-配置Tracker服务"><a href="#1-4-1-配置Tracker服务" class="headerlink" title="1.4.1 配置Tracker服务"></a>1.4.1 配置Tracker服务</h4><p>修改/etc/fdfs/tracker.conf文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/FastDFS/FastDFS/tracker</span><br><span class="line"># 修改文件</span><br><span class="line">vim /etc/fdfs/tracker.conf</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020031119510323.png" alt><br>修改base_path路径为：base_path=/usr/local/FastDFS/FastDFS/tracker<br>为防止冲突将端口修改 http.server_port=9080（可以不修改）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 保存并退出</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
+
+<p>启动tracker</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line">/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf</span><br><span class="line"># 重启</span><br><span class="line">/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf restart</span><br><span class="line"># 关闭服务</span><br><span class="line">service fdfs_trackerd stop</span><br></pre></td></tr></table></figure>
+
+<p>配置开机自启动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 编辑文件</span><br><span class="line">vim /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure>
+
+<p>加入/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf</p>
+<h4 id="1-4-2-配置Storage服务"><a href="#1-4-2-配置Storage服务" class="headerlink" title="1.4.2 配置Storage服务"></a>1.4.2 配置Storage服务</h4><p>修改/etc/fdfs/storage.conf文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/FastDFS/FastDFS/storage</span><br><span class="line"># 修改文件</span><br><span class="line">vim /etc/fdfs/storage.conf</span><br></pre></td></tr></table></figure>
+
+<p>修改base_path路径为：base_path=/usr/local/FastDFS/FastDFS/storage<br>修改store_path0路径为：store_path0=/usr/local/FastDFS/FastDFS/storage<br>因为Tracker(跟踪器)和Storage(存储器)在配置在同一服务器下<br>所以将 tracker_server=本机ip:22122<br>为防止冲突将端口修改 http.server_port=9888（可以不修改）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 保存并退出</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line">/usr/bin/fdfs_storaged /etc/fdfs/storage.conf</span><br><span class="line"># 重启</span><br><span class="line">/usr/bin/fdfs_storaged /etc/fdfs/storage.conf restart</span><br><span class="line"># 关闭服务</span><br><span class="line">service fdfs_storaged stop</span><br></pre></td></tr></table></figure>
+
+<p>查看是否启动成功</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -unltp|grep fdfs</span><br><span class="line"># 22122 23000 端口都被监听表示tracker和storage服务都启动成功</span><br></pre></td></tr></table></figure>
+
+<p>配置开机自启动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 编辑文件</span><br><span class="line">vim /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure>
+
+<p>加入/usr/bin/fdfs_storaged /etc/fdfs/storage.conf</p>
+<p>防火墙打开tracker和storage端口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 打开防火墙</span><br><span class="line">vim /etc/sysconfig/iptables</span><br><span class="line">添加如下端口行：</span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">80</span> -j ACCEPT</span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">22122</span> -j ACCEPT</span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">23000</span> -j ACCEPT</span><br><span class="line"># 重启防火墙：</span><br><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-5、配置客户端"><a href="#1-5、配置客户端" class="headerlink" title="1.5、配置客户端"></a>1.5、配置客户端</h2><p>将/usr/local/FastDFS/client里面的libfdfsclient.so文件拷贝到 /usr/lib下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/FastDFS/FastDFS/client</span><br><span class="line">cp libfdfsclient.so /usr/lib</span><br><span class="line"># 修改文件</span><br><span class="line">vim /etc/fdfs/client.conf</span><br></pre></td></tr></table></figure>
+
+<p>修改base_path路径为：base_path=/usr/local/FastDFS/FastDFS/client<br>将 tracker_server=本机ip:22122</p>
+<p>测试：<br>在root目录下新建html文件作为测试文件上传</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /root/test.html</span><br></pre></td></tr></table></figure>
+
+<p>上传文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/fdfs_upload_file /etc/fdfs/client.conf /root/test.html</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200311212150297.png" alt><br>上传成功<br>如果报错：<br>ERROR - file: tracker_proto.c, line: 48, server: 192.168.110.128:22122, response status 2 != 0<br>tracker_query_storage fail, error no: 2, error info: No such file or directory<br>解决方案：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pkill -<span class="number">9</span> fdfs</span><br><span class="line">/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf</span><br><span class="line">/usr/bin/fdfs_storaged /etc/fdfs/storage.conf</span><br></pre></td></tr></table></figure>
+
+<p>查看文件保存目录</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/FastDFS/FastDFS/storage/data/<span class="number">00</span>/<span class="number">00</span></span><br><span class="line">ll</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200312110409924.png" alt></p>
+<h2 id="1-6、安装Nginx和Nginx插件，允许http访问"><a href="#1-6、安装Nginx和Nginx插件，允许http访问" class="headerlink" title="1.6、安装Nginx和Nginx插件，允许http访问"></a>1.6、安装Nginx和Nginx插件，允许http访问</h2><h3 id="1-6-1、安装依赖："><a href="#1-6-1、安装依赖：" class="headerlink" title="1.6.1、安装依赖："></a>1.6.1、安装依赖：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># gcc，前面已安装</span><br><span class="line">yum install gcc-c++</span><br><span class="line"># PCRE</span><br><span class="line">yum install -y pcre pcre-devel</span><br><span class="line"># zlib</span><br><span class="line">yum install -y zlib zlib-devel</span><br><span class="line"># openssl</span><br><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-6-2、解压安装Nginx插件"><a href="#1-6-2、解压安装Nginx插件" class="headerlink" title="1.6.2、解压安装Nginx插件"></a>1.6.2、解压安装Nginx插件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/FastDFS</span><br><span class="line">tar -zxf fastdfs-nginx-module_v1.16.tar.gz</span><br><span class="line">cd fastdfs-nginx-<span class="keyword">module</span></span><br></pre></td></tr></table></figure>
+
+<p>修改fastdfs-nginx-module/src/config文件，去掉local<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200312113243948.png" alt></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将local替换为空</span><br><span class="line">:%s/local\<span class="comment">///g</span></span><br></pre></td></tr></table></figure>
+
+<p>将fastdfs-nginx-module/src/mod_fastdfs.conf文件复制到/etc/fdfs目录下，并编辑该文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp mod_fastdfs.conf /etc/fdfs/</span><br><span class="line">vim /etc/fdfs/mod_fastdfs.conf</span><br></pre></td></tr></table></figure>
+
+<p>将tracker_server=你的ip:22122<br>将url_have_group_name = true<br>将store_path0=/usr/local/FastDFS/FastDFS/storage</p>
+<h3 id="1-6-3、解压安装Nginx"><a href="#1-6-3、解压安装Nginx" class="headerlink" title="1.6.3、解压安装Nginx"></a>1.6.3、解压安装Nginx</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/FastDFS/</span><br><span class="line"># 解压Nginx</span><br><span class="line">tar -zxf nginx-<span class="number">1.11</span>.5.tar.gz</span><br><span class="line">cd nginx-<span class="number">1.11</span>.5</span><br></pre></td></tr></table></figure>
+
+<p>对Nginx重新config</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --add-<span class="keyword">module</span>=/usr/local/FastDFS/fastdfs-nginx-<span class="keyword">module</span>/src</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200312120642720.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200312120701284.png" alt></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 编译</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200312120833752.png" alt></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200312120929777.png" alt><br>对Nginx进行配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/conf</span><br><span class="line">vim nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020031212115728.png" alt><br> 在sever里添加：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /group1/M00/&#123;</span><br><span class="line">   ngx_fastdfs_module;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200312121742580.png" alt></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 保存退出</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
+
+<p>启动nginx进程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">cd sbin</span><br><span class="line">./nginx</span><br><span class="line"># 查看进程是否启动</span><br><span class="line">ps -aux | grep nginx</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020031212224229.png" alt><br>访问路径：<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/111.png" alt><br>设置Nginx开机自启</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 编辑文件</span><br><span class="line">vim /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure>
+
+<p>加入<code>/usr/local/nginx/sbin/ngin</code></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/566436426.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+        
+    </div>
+
+    
+    
+</div>
+
+    </div>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

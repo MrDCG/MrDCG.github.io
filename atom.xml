@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2020-02-29T04:41:14.647Z</updated>
+  <updated>2020-03-12T13:38:57.823Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux下搭建FastDFS文件服务器</title>
+    <link href="https://mrdcg.github.io/2020/03/12/linux%E4%B8%8B%E6%90%AD%E5%BB%BAFastDFS%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://mrdcg.github.io/2020/03/12/linux下搭建FastDFS文件服务器/</id>
+    <published>2020-03-12T13:14:31.000Z</published>
+    <updated>2020-03-12T13:38:57.823Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1-1、安装gcc环境&quot;&gt;&lt;a href=&quot;#1-1、安装gcc环境&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://mrdcg.github.io/categories/Linux/"/>
+    
+    
+      <category term="服务器" scheme="https://mrdcg.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="FastDFS" scheme="https://mrdcg.github.io/tags/FastDFS/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaWeb项目实现短信验证码</title>
@@ -522,32 +550,6 @@
     </summary>
     
       <category term="Java" scheme="https://mrdcg.github.io/categories/Java/"/>
-    
-    
-      <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript和jQuery的一些方法</title>
-    <link href="https://mrdcg.github.io/2019/07/07/JavaScript%E5%92%8CjQuery%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/"/>
-    <id>https://mrdcg.github.io/2019/07/07/JavaScript和jQuery的一些方法/</id>
-    <published>2019-07-07T09:35:57.000Z</published>
-    <updated>2019-07-08T09:49:15.452Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、jQuery-each-（循环遍历）&quot;&gt;&lt;a href=&quot;#1、jQuery-each-（循环遍历）&quot; class=&quot;headerlink&quot; title=&quot;1、jQuery.each()（循环遍历）&quot;&gt;&lt;/a&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="jQuery" scheme="https://mrdcg.github.io/categories/jQuery/"/>
     
     
       <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
