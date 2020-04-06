@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2020-03-12T13:38:57.823Z</updated>
+  <updated>2020-04-06T14:10:11.822Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis服务器搭建与学习</title>
+    <link href="https://mrdcg.github.io/2020/04/06/Redis%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>https://mrdcg.github.io/2020/04/06/Redis集群的搭建/</id>
+    <published>2020-04-06T14:03:31.000Z</published>
+    <updated>2020-04-06T14:10:11.822Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;1、redis-cluster-redis集群&quot;&gt;&lt;a href=&quot;#1、redis-cluster-redis集群&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Redis" scheme="https://mrdcg.github.io/categories/Redis/"/>
+    
+    
+      <category term="Linux" scheme="https://mrdcg.github.io/tags/Linux/"/>
+    
+      <category term="Redis" scheme="https://mrdcg.github.io/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis服务器搭建与学习</title>
+    <link href="https://mrdcg.github.io/2020/04/06/Redis%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://mrdcg.github.io/2020/04/06/Redis服务器搭建与学习/</id>
+    <published>2020-04-06T13:49:31.000Z</published>
+    <updated>2020-04-06T14:01:45.253Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Redis服务器的搭建&quot;&gt;&lt;a href=&quot;#Redis服务器的搭建&quot; class=&quot;headerlink&quot; title=&quot;Redis服务器的搭建&quot;&gt;&lt;/a&gt;Redis服务器的搭建&lt;/h3&gt;&lt;p&gt;首先需要gcc环境&lt;br&gt;&lt;code&gt;yum install
+        
+      
+    
+    </summary>
+    
+      <category term="Redis" scheme="https://mrdcg.github.io/categories/Redis/"/>
+    
+    
+      <category term="Linux" scheme="https://mrdcg.github.io/tags/Linux/"/>
+    
+      <category term="Redis" scheme="https://mrdcg.github.io/tags/Redis/"/>
+    
+  </entry>
   
   <entry>
     <title>linux下搭建FastDFS文件服务器</title>
@@ -174,9 +230,9 @@
       <category term="UI" scheme="https://mrdcg.github.io/categories/UI/"/>
     
     
-      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
-    
       <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
+    
+      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
     
   </entry>
   
@@ -254,39 +310,9 @@
       <category term="简历" scheme="https://mrdcg.github.io/categories/%E7%AE%80%E5%8E%86/"/>
     
     
-      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
-    
       <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
     
-  </entry>
-  
-  <entry>
-    <title>简单的注册页面</title>
-    <link href="https://mrdcg.github.io/2019/07/17/%E7%AE%80%E5%8D%95%E7%9A%84%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>https://mrdcg.github.io/2019/07/17/简单的注册页面 - 副本/</id>
-    <published>2019-07-17T10:41:31.000Z</published>
-    <updated>2019-07-27T05:02:46.848Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;写了个HTML-JS注册页面&quot;&gt;&lt;a href=&quot;#写了个HTML-JS注册页面&quot; class=&quot;headerlink&quot; title=&quot;写了个HTML+JS注册页面&quot;&gt;&lt;/a&gt;写了个HTML+JS注册页面&lt;/h2&gt;&lt;figure class=&quot;highlight
-        
-      
-    
-    </summary>
-    
-      <category term="HTML" scheme="https://mrdcg.github.io/categories/HTML/"/>
-    
-      <category term="Javascript" scheme="https://mrdcg.github.io/categories/HTML/Javascript/"/>
-    
-    
       <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
-    
-      <category term="Javascript" scheme="https://mrdcg.github.io/tags/Javascript/"/>
     
   </entry>
   
@@ -524,32 +550,6 @@
     </summary>
     
       <category term="jQuery" scheme="https://mrdcg.github.io/categories/jQuery/"/>
-    
-    
-      <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java基础之集合</title>
-    <link href="https://mrdcg.github.io/2019/07/07/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/"/>
-    <id>https://mrdcg.github.io/2019/07/07/Java基础之集合/</id>
-    <published>2019-07-07T09:36:02.000Z</published>
-    <updated>2019-07-07T09:41:59.194Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;利用list集合编写的终极武器系统&quot;&gt;&lt;a href=&quot;#利用list集合编写的终极武器系统&quot; class=&quot;headerlink&quot; title=&quot;利用list集合编写的终极武器系统&quot;&gt;&lt;/a&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="https://mrdcg.github.io/categories/Java/"/>
     
     
       <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>

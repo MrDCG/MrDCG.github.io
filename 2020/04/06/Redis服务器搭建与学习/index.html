@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Redis服务器搭建与学习 - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="Redis服务器的搭建首先需要gcc环境yum install gcc-c++下载redis压缩包wget http://download.redis.io/releases/redis-5.0.3,"> 
+    <meta name="author" content="贰货不二"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Redis服务器搭建与学习</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Redis服务器搭建与学习</h1>
+        <div class="stuff">
+            <span>四月 06, 2020</span>
+
+            <span>
+   阅读数(请刷新)<span id="busuanzi_value_page_pv"></span>
+</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Redis/">Redis</a></li></ul>
+
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="Redis服务器的搭建"><a href="#Redis服务器的搭建" class="headerlink" title="Redis服务器的搭建"></a>Redis服务器的搭建</h3><p>首先需要gcc环境<br><code>yum install gcc-c++</code><br>下载redis压缩包<br><code>wget http://download.redis.io/releases/redis-5.0.3.tar.gz</code><br>解压<br><code>tar -zxvf redis-5.0.3.tar.gz</code><br>编译安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd redis-5.0.3</span><br><span class="line">make</span><br><span class="line"># 安装到/usr/local/redis</span><br><span class="line">make install PREFIX=/usr/local/redis</span><br></pre></td></tr></table></figure>
+
+<p>将redis.conf文件复制到/usr/local/redis/bin下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp redis.conf  /usr/local/redis/bin</span><br></pre></td></tr></table></figure>
+
+<p>修改redis.conf文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim redis.conf</span><br><span class="line"></span><br><span class="line">将daemonize no 改成daemonize yes</span><br></pre></td></tr></table></figure>
+
+<p>cd /usr/local/redis/bin<br>直接启动：./redis-server  退出：ctrl+c<br>后台启动：./redis-server redis.conf<br>查看是否启动：ps aux|grep redis<br>关闭：kill 端口 或者 ./redis-cli shutdown<br>强制关闭：kill -9<br>查看防火墙状态：service iptables status</p>
+<p>连接本地客户端：./redis-cli<br>退出客户端：ctrl+c</p>
+<p>连接其他服务端的redis客户端：./redis-cli -h ip地址 -p 端口号<br>(连接其他服务端需要更改配置文件redis.conf中的bind，加入IP地址)</p>
+<p>客户端命令：ping （查看redis健康状态）返回PONG表示政正常<br>Redis五种基本数据类型：string,hash,list,set,sorted set</p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>默认情况下，Redis有16个数据库，从0号数据库到15号数据库。在默认情况下，Redis客户端的数据库为0号数据库，但客户端可以通过执行select命令来切换数据库。切换之后，在客户端中会显示数据库的标号（0号数据库不显示）<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213249636.png" alt></p>
+<h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><p>存数据（key，value）：set key value<br>取数据：get key<br>查看当前数据库所有key：keys *<br>key自增（加1），value只能是数字，取出来的值是string类型：incr key<br>key自减：decr key<br>删除key：del key<br>查看当前库中key值数量：DBSIZE<br>keys k?：查找以k开头且后面跟一个字符的key值（keys k??）<br>清空当前库：FLUSHDB<br>清空所有库：FLUSHALL</p>
+<h4 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h4><p>添加hash数据类型：hset hash名 field名 value<br>查看hash类型下所有的field：hkeys hash名<br>查看hash类型下所有的field对应的值：hvals hash名<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213314247.png" alt></p>
+<p>获取hash类型的所有field及对应的value：hgetall hash名<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020040621335741.png" alt><br>删除hash类型的field：hdel hash名 field</p>
+<h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>添加list类型（可添加重复元素）：<br>从左边开始添加：lpush list名 valuse<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213418895.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213430431.png" alt><br>从右边开始添加：rpush list名 values<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213443361.png" alt><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213449368.png" alt><br>查看list中的values：lrange list名 start end（-1表示查看所有）<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213503838.png" alt><br>取出元素：<br>从左边取元素：lpop list名<br>从右边取语速：rpop list名<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213517560.png" alt><br>元素取出后list中将不存在</p>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>添加set类型（不可添加重复元素）：sadd set名 values<br>查看元素：smembers set名<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213534797.png" alt><br>删除元素：srem set1 value[values]</p>
+<p>两个set集合取差集：sdiff set名 set名<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213554619.png" alt><br>取交集：sinter set名 set名<br>取并集：sunion set名 set名<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020040621361329.png" alt></p>
+<h4 id="sorted-set"><a href="#sorted-set" class="headerlink" title="sorted set"></a>sorted set</h4><p>添加 sorted set类型（有序的集合）：zadd zset1 score value<br>根据score大小将value进行升序排序<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213627116.png" alt><br>查看：zrange key start  end（-1查看所有）<br>删除：zrem key value<br>降序排序查看：zrevrange key start end<br>查看value及score：zrange/zrevrange key start end withscores<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213637755.png" alt></p>
+<p>查看所有key：keys *<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/202004062136510.png" alt></p>
+<p><strong>设置key的过期时间：expire key seconds，在过期时间没到之前可用该命令重置过期时间；将key持久化（永不过期，必须在过期时间内设置）：Persist key</strong><br><strong>查看key的过期时间：ttl key（为正数则正在倒计时过期时间，为-1则说明永久保存，为-2表示该key不存在）</strong><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020040621370560.png" alt></p>
+<h4 id="Redis持久化方案"><a href="#Redis持久化方案" class="headerlink" title="Redis持久化方案"></a>Redis持久化方案</h4><p>Rdb：快照形式，定期把内存中当前时刻的数据保存到磁盘，Redis默认的持久化方案，默认开启。<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020040621372630.png" alt><br>aof：默认关闭，完整性相比于Rdb高，每秒访问一次磁盘，将操作存在appendonly.aof文件中，如果要恢复数据库则会将appendonly.aof文件中的操作执行一遍已实现数据恢复。<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213735110.png" alt></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/1398663411.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+        
+    </div>
+
+    
+    
+</div>
+
+    </div>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
