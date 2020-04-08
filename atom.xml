@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2020-04-06T14:14:47.880Z</updated>
+  <updated>2020-04-08T08:52:24.194Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -17,11 +17,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Redis集群踩的坑及报错记录并解决</title>
+    <link href="https://mrdcg.github.io/2020/04/08/Redis%E9%9B%86%E7%BE%A4%E8%B8%A9%E7%9A%84%E5%9D%91%E5%8F%8A%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95%E5%B9%B6%E8%A7%A3%E5%86%B3/"/>
+    <id>https://mrdcg.github.io/2020/04/08/Redis集群踩的坑及报错记录并解决/</id>
+    <published>2020-04-08T08:51:31.000Z</published>
+    <updated>2020-04-08T08:52:24.194Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、报错redis-clients-jedis-exceptions-JedisConnectionException-Could-not-get-a-resource-from-the-pool&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Redis" scheme="https://mrdcg.github.io/categories/Redis/"/>
+    
+    
+      <category term="Linux" scheme="https://mrdcg.github.io/tags/Linux/"/>
+    
+      <category term="Redis" scheme="https://mrdcg.github.io/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSM整合Redis Cluster（Redis集群）</title>
+    <link href="https://mrdcg.github.io/2020/04/08/SSM%E6%95%B4%E5%90%88Redis%20Cluster%EF%BC%88Redis%E9%9B%86%E7%BE%A4%EF%BC%89/"/>
+    <id>https://mrdcg.github.io/2020/04/08/SSM整合Redis Cluster（Redis集群）/</id>
+    <published>2020-04-08T08:50:31.000Z</published>
+    <updated>2020-04-08T08:50:16.920Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、导入依赖&quot;&gt;&lt;a href=&quot;#1、导入依赖&quot; class=&quot;headerlink&quot; title=&quot;1、导入依赖&quot;&gt;&lt;/a&gt;1、导入依赖&lt;/h3&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="Redis" scheme="https://mrdcg.github.io/categories/Redis/"/>
+    
+    
+      <category term="Linux" scheme="https://mrdcg.github.io/tags/Linux/"/>
+    
+      <category term="Redis" scheme="https://mrdcg.github.io/tags/Redis/"/>
+    
+      <category term="SSM" scheme="https://mrdcg.github.io/tags/SSM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Redis集群的搭建</title>
     <link href="https://mrdcg.github.io/2020/04/06/Redis%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
     <id>https://mrdcg.github.io/2020/04/06/Redis集群的搭建/</id>
     <published>2020-04-06T14:03:31.000Z</published>
-    <updated>2020-04-06T14:14:47.880Z</updated>
+    <updated>2020-04-08T08:47:21.875Z</updated>
     
     <summary type="html">
     
@@ -49,7 +107,7 @@
     <link href="https://mrdcg.github.io/2020/04/06/Redis%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%AD%A6%E4%B9%A0/"/>
     <id>https://mrdcg.github.io/2020/04/06/Redis服务器搭建与学习/</id>
     <published>2020-04-06T13:49:31.000Z</published>
-    <updated>2020-04-06T14:01:45.253Z</updated>
+    <updated>2020-04-08T08:46:22.378Z</updated>
     
     <summary type="html">
     
@@ -230,9 +288,9 @@
       <category term="UI" scheme="https://mrdcg.github.io/categories/UI/"/>
     
     
-      <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
-    
       <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
+    
+      <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -310,9 +368,9 @@
       <category term="简历" scheme="https://mrdcg.github.io/categories/%E7%AE%80%E5%8E%86/"/>
     
     
-      <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
-    
       <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
+    
+      <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -501,58 +559,6 @@
     
     
       <category term="互联网" scheme="https://mrdcg.github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用hexo和GitHub搭建属于自己的私人博客（特详细）</title>
-    <link href="https://mrdcg.github.io/2019/07/08/%E5%88%A9%E7%94%A8hexo%E5%92%8CGitHub%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E7%89%B9%E8%AF%A6%E7%BB%86%EF%BC%89/"/>
-    <id>https://mrdcg.github.io/2019/07/08/利用hexo和GitHub搭建属于自己的私人博客（特详细）/</id>
-    <published>2019-07-08T08:22:31.000Z</published>
-    <updated>2019-07-10T02:28:22.661Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;先展示一下&quot;&gt;&lt;a href=&quot;#先展示一下&quot; class=&quot;headerlink&quot; title=&quot;先展示一下&quot;&gt;&lt;/a&gt;&lt;a href&gt;&lt;/a&gt;先展示一下&lt;/h1&gt;&lt;p&gt; &lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="博客网站" scheme="https://mrdcg.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/"/>
-    
-    
-      <category term="互联网" scheme="https://mrdcg.github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery学习之Ajax</title>
-    <link href="https://mrdcg.github.io/2019/07/07/jQuery%E5%AD%A6%E4%B9%A0%E4%B9%8BAjax/"/>
-    <id>https://mrdcg.github.io/2019/07/07/jQuery学习之Ajax/</id>
-    <published>2019-07-07T09:39:17.000Z</published>
-    <updated>2019-07-07T10:25:27.067Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;AJAX-简介&quot;&gt;&lt;a href=&quot;#AJAX-简介&quot; class=&quot;headerlink&quot; title=&quot;AJAX 简介&quot;&gt;&lt;/a&gt;&lt;a href&gt;&lt;/a&gt;AJAX 简介&lt;/h2&gt;&lt;p&gt; AJAX
-        
-      
-    
-    </summary>
-    
-      <category term="jQuery" scheme="https://mrdcg.github.io/categories/jQuery/"/>
-    
-    
-      <category term="学习" scheme="https://mrdcg.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

@@ -1,0 +1,187 @@
+
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SSM整合Redis Cluster（Redis集群） - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="1、导入依赖123456789101112131415&amp;lt;!-- Redis客户端：Jedis --&amp;gt;		&amp;lt;!-- https://mvnrepository.com/artifac,"> 
+    <meta name="author" content="贰货不二"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">SSM整合Redis Cluster（Redis集群）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">SSM整合Redis Cluster（Redis集群）</h1>
+        <div class="stuff">
+            <span>四月 08, 2020</span>
+
+            <span>
+   阅读数(请刷新)<span id="busuanzi_value_page_pv"></span>
+</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Redis/">Redis</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SSM/">SSM</a></li></ul>
+
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="1、导入依赖"><a href="#1、导入依赖" class="headerlink" title="1、导入依赖"></a>1、导入依赖</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Redis客户端：Jedis --&gt;</span><br><span class="line">		&lt;!-- https:<span class="comment">//mvnrepository.com/artifact/redis.clients/jedis --&gt;</span></span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;redis.clients&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;jedis&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;2.9.0&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">		&lt;!-- Spring整合redis --&gt;</span><br><span class="line">		&lt;!-- https:<span class="comment">//mvnrepository.com/artifact/org.springframework.data/spring-data-redis --&gt;</span></span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework.data&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-data-redis&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;1.8.4.RELEASE&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>建议就导入这两个版本的依赖，其他可能会版本会造成jar包冲突。</p>
+<h3 id="2、redis-properties"><a href="#2、redis-properties" class="headerlink" title="2、redis.properties"></a>2、redis.properties</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#redis</span><br><span class="line">redis.pool.maxTotal=<span class="number">30</span></span><br><span class="line">redis.pool.maxIdle=<span class="number">10</span></span><br><span class="line">redis.pool.numTestsPerEvictionRun=<span class="number">1024</span></span><br><span class="line">redis.pool.timeBetweenEvictionRunsMillis=<span class="number">30000</span></span><br><span class="line">redis.pool.minEvictableIdleTimeMillis=<span class="number">1800000</span></span><br><span class="line">redis.pool.softMinEvictableIdleTimeMillis=<span class="number">10000</span></span><br><span class="line">redis.pool.maxWaitMillis=<span class="number">1500</span></span><br><span class="line">redis.pool.testOnBorrow=<span class="keyword">true</span></span><br><span class="line">redis.pool.testWhileIdle=<span class="keyword">true</span></span><br><span class="line">redis.pool.blockWhenExhausted=<span class="keyword">false</span></span><br><span class="line">redis.maxRedirects=<span class="number">3</span></span><br><span class="line">redis.host1=<span class="number">192.168</span>.110.131</span><br><span class="line">redis.port1=<span class="number">7001</span></span><br><span class="line">redis.host2=<span class="number">192.168</span>.110.131</span><br><span class="line">redis.port2=<span class="number">7002</span></span><br><span class="line">redis.host3=<span class="number">192.168</span>.110.131</span><br><span class="line">redis.port3=<span class="number">7003</span></span><br><span class="line">redis.host4=<span class="number">192.168</span>.110.131</span><br><span class="line">redis.port4=<span class="number">7004</span></span><br><span class="line">redis.host5=<span class="number">192.168</span>.110.131</span><br><span class="line">redis.port5=<span class="number">7005</span></span><br><span class="line">redis.host6=<span class="number">192.168</span>.110.131</span><br><span class="line">redis.port6=<span class="number">7006</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、beans-redis-xml"><a href="#3、beans-redis-xml" class="headerlink" title="3、beans-redis.xml"></a>3、beans-redis.xml</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">	xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></span><br><span class="line">	xmlns:aop=<span class="string">"http://www.springframework.org/schema/aop"</span></span><br><span class="line">	xmlns:tx=<span class="string">"http://www.springframework.org/schema/tx"</span></span><br><span class="line">	xmlns:cache=<span class="string">"http://www.springframework.org/schema/cache"</span></span><br><span class="line">	xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">		http://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="line"><span class="string">		http://www.springframework.org/schema/context</span></span><br><span class="line"><span class="string">		http://www.springframework.org/schema/context/spring-context.xsd</span></span><br><span class="line"><span class="string">		http://www.springframework.org/schema/aop</span></span><br><span class="line"><span class="string">		http://www.springframework.org/schema/aop/spring-aop.xsd</span></span><br><span class="line"><span class="string">		http://www.springframework.org/schema/tx</span></span><br><span class="line"><span class="string">		http://www.springframework.org/schema/tx/spring-tx.xsd</span></span><br><span class="line"><span class="string">		http://www.springframework.org/schema/cache</span></span><br><span class="line"><span class="string">		http://www.springframework.org/schema/cache/spring-cache.xsd"</span>&gt;</span><br><span class="line">		&lt;!-- 使用.properties文件 --&gt;</span><br><span class="line">	&lt;bean id=<span class="string">"propertyConfigurer"</span>			<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"</span>&gt;</span><br><span class="line">		&lt;property name=<span class="string">"location"</span> value=<span class="string">"classpath:redis.properties"</span> /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;!-- Jedis配置 --&gt;</span><br><span class="line">	&lt;bean id=<span class="string">"jedisPoolConfig"</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span></span>=<span class="string">"redis.clients.jedis.JedisPoolConfig"</span>&gt;</span><br><span class="line">		&lt;!-- 最大连接数 --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"maxTotal"</span> value=<span class="string">"30"</span> /&gt;</span><br><span class="line">		&lt;!-- 最大空闲连接数 --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"MaxIdle"</span> value=<span class="string">"10"</span> /&gt;</span><br><span class="line">		&lt;!-- 每次释放连接的最大数目 --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"numTestsPerEvictionRun"</span> value=<span class="string">"1024"</span> /&gt;</span><br><span class="line">		&lt;!-- 释放连接的扫描间隔（毫秒） --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"timeBetweenEvictionRunsMillis"</span> value=<span class="string">"30000"</span> /&gt;</span><br><span class="line">		&lt;!-- 连接最小空闲时间 --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"minEvictableIdleTimeMillis"</span> value=<span class="string">"1800000"</span> /&gt;</span><br><span class="line">		&lt;!-- 连接空闲多久后释放, 当空闲时间&gt;该值 且 空闲连接&gt;最大空闲连接数 时直接释放 --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"softMinEvictableIdleTimeMillis"</span> value=<span class="string">"10000"</span> /&gt;</span><br><span class="line">		&lt;!-- 获取连接时的最大等待毫秒数,小于零:阻塞不确定的时间,默认-<span class="number">1</span> --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"maxWaitMillis"</span> value=<span class="string">"1500"</span> /&gt;</span><br><span class="line">		&lt;!-- 在获取连接的时候检查有效性, 默认<span class="keyword">false</span> --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"testOnBorrow"</span></span><br><span class="line">			value=<span class="string">"$&#123;redis.pool.testOnBorrow&#125;"</span> /&gt;</span><br><span class="line">		&lt;!-- 在空闲时检查有效性, 默认<span class="keyword">false</span> --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"testWhileIdle"</span></span><br><span class="line">			value=<span class="string">"$&#123;redis.pool.testWhileIdle&#125;"</span> /&gt;</span><br><span class="line">		&lt;!-- 连接耗尽时是否阻塞, <span class="keyword">false</span>报异常,ture阻塞直到超时, 默认<span class="keyword">true</span> --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"blockWhenExhausted"</span></span><br><span class="line">			value=<span class="string">"$&#123;redis.pool.blockWhenExhausted&#125;"</span> /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 配置Cluster --&gt;</span><br><span class="line">	&lt;bean id=<span class="string">"redisClusterConfiguration"</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.connection.RedisClusterConfiguration"</span>&gt;</span><br><span class="line">		&lt;property name="maxRedirects" value="3"&gt;&lt;/property&gt;</span><br><span class="line">		&lt;!-- 节点配置 --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"clusterNodes"</span>&gt;</span><br><span class="line">			&lt;set&gt;</span><br><span class="line">				&lt;bean</span><br><span class="line">					<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.connection.RedisClusterNode"</span>&gt;</span><br><span class="line">					&lt;constructor-arg name="host" value="$&#123;redis.host1&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">					&lt;constructor-arg name="port" value="$&#123;redis.port1&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">				&lt;/bean&gt;</span><br><span class="line">				&lt;bean</span><br><span class="line">					<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.connection.RedisClusterNode"</span>&gt;</span><br><span class="line">					&lt;constructor-arg name="host" value="$&#123;redis.host2&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">					&lt;constructor-arg name="port" value="$&#123;redis.port2&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">				&lt;/bean&gt;</span><br><span class="line">				&lt;bean</span><br><span class="line">					<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.connection.RedisClusterNode"</span>&gt;</span><br><span class="line">					&lt;constructor-arg name="host" value="$&#123;redis.host3&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">					&lt;constructor-arg name="port" value="$&#123;redis.port3&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">				&lt;/bean&gt;</span><br><span class="line">				&lt;bean</span><br><span class="line">					<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.connection.RedisClusterNode"</span>&gt;</span><br><span class="line">					&lt;constructor-arg name="host" value="$&#123;redis.host4&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">					&lt;constructor-arg name="port" value="$&#123;redis.port4&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">				&lt;/bean&gt;</span><br><span class="line">				&lt;bean</span><br><span class="line">					<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.connection.RedisClusterNode"</span>&gt;</span><br><span class="line">					&lt;constructor-arg name="host" value="$&#123;redis.host5&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">					&lt;constructor-arg name="port" value="$&#123;redis.port5&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">				&lt;/bean&gt;</span><br><span class="line">				&lt;bean</span><br><span class="line">					<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.connection.RedisClusterNode"</span>&gt;</span><br><span class="line">					&lt;constructor-arg name="host" value="$&#123;redis.host6&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">					&lt;constructor-arg name="port" value="$&#123;redis.port6&#125;"&gt;&lt;/constructor-arg&gt;</span><br><span class="line">				&lt;/bean&gt;</span><br><span class="line">			&lt;/set&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;!-- 配置jedis连接工厂 --&gt;</span><br><span class="line">	&lt;bean id=<span class="string">"jeidsConnectionFactory"</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.connection.jedis.JedisConnectionFactory"</span>&gt;</span><br><span class="line">		&lt;constructor-arg ref=<span class="string">"redisClusterConfiguration"</span> /&gt;</span><br><span class="line">		&lt;constructor-arg ref=<span class="string">"jedisPoolConfig"</span> /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;!-- 配置RedisTemplate --&gt;</span><br><span class="line">	&lt;bean id=<span class="string">"redisTemplate"</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.core.RedisTemplate"</span>&gt;</span><br><span class="line">		&lt;property name=<span class="string">"connectionFactory"</span></span><br><span class="line">			ref=<span class="string">"jeidsConnectionFactory"</span> /&gt;</span><br><span class="line">		&lt;!-- String --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"keySerializer"</span>&gt;</span><br><span class="line">			&lt;bean</span><br><span class="line">				<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.serializer.StringRedisSerializer"</span> /&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">		&lt;property name=<span class="string">"valueSerializer"</span>&gt;</span><br><span class="line">			&lt;bean</span><br><span class="line">				<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"</span> /&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">		&lt;!-- hash --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"hashKeySerializer"</span>&gt;</span><br><span class="line">			&lt;bean</span><br><span class="line">				<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.serializer.StringRedisSerializer"</span> /&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">		&lt;property name=<span class="string">"hashValueSerializer"</span>&gt;</span><br><span class="line">			&lt;bean</span><br><span class="line">				<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.serializer.StringRedisSerializer"</span> /&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;!-- 定义缓存管理器redisCacheManager。 注意：cache-manager默认值是cacheManager,你的缓存管理器id要是命名是cacheManager，这里可以省略 </span><br><span class="line">		<span class="number">1</span>.使用注解驱动 --&gt;</span><br><span class="line">	&lt;cache:annotation-driven</span><br><span class="line">		cache-manager=<span class="string">"redisCacheManager"</span> /&gt;</span><br><span class="line">	&lt;!-- <span class="number">2</span>.定义缓存管理器 --&gt;</span><br><span class="line">	&lt;bean id=<span class="string">"redisCacheManager"</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.data.redis.cache.RedisCacheManager"</span>&gt;</span><br><span class="line">		&lt;!-- 通过构造方法注入redisTemplate --&gt;</span><br><span class="line">		&lt;constructor-arg index=<span class="string">"0"</span> ref=<span class="string">"redisTemplate"</span> /&gt;</span><br><span class="line">		&lt;!-- 定义超时时间，单位秒 --&gt;</span><br><span class="line">		&lt;property name="defaultExpiration" value="5000"&gt;&lt;/property&gt;</span><br><span class="line">		&lt;!-- 设置缓存器名称 --&gt;</span><br><span class="line">		&lt;property name=<span class="string">"cacheNames"</span>&gt;</span><br><span class="line">			&lt;list&gt;</span><br><span class="line">				&lt;value&gt;redisCacheManager&lt;/value&gt;</span><br><span class="line">			&lt;/list&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、注解使用"><a href="#4、注解使用" class="headerlink" title="4、注解使用"></a>4、注解使用</h3><p>在BeanServiceImpl.java文件中对方法进行注解添加<br>@CachePut注解：<br>如果缓存需要更新，且不干扰方法的执行,可以使用注解@CachePut。@CachePut标注的方法在执行前不会去检查缓存中是否存在之前执行过的结果，而是每次都会执行该方法，并将执行结果以键值对的形式存入指定的缓存中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="meta">@CachePut</span>(value=<span class="string">"redisCacheManager"</span>,key=<span class="string">"'insertP'"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertProduct</span><span class="params">(Product product,CommonsMultipartFile file, HttpServletRequest request)</span></span>&#123;</span><br><span class="line">    service.insertP(product);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// key对应的是mapper中的方法，并不是BeanServiceImpl.java方法</span></span><br></pre></td></tr></table></figure>
+
+<p>@Cacheable注解：<br>用来声明方法是可缓存的。将结果存储到缓存中以便后续使用相同参数调用时不需执行实际的方法。直接从缓存中取值。最简单的格式需要制定缓存名称。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Cacheable</span>(value=<span class="string">"redisCacheManager"</span>,key=<span class="string">"'findProduct'"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Product&gt; <span class="title">findProduct</span><span class="params">(Integer pageNo)</span></span>&#123;</span><br><span class="line">	service.findProduct(product);&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@CacheEvict是用来标注在需要清除缓存元素的方法或类上的。当标记在一个类上时表示其中所有的方法的执行都会触发缓存的清除操作。<br>PS:<br>value的值是redis配置文件对应的缓存管理器的id值<br>key=”‘insertProduct’”：是要缓存到redis中的值，下次spring会直接通过key获取结果。注意key的值中还有个单引号。<br>@Cacheable：适合查询，有返回值的方法上。因为，每次请求在进入方法之前，spring会先从缓存服务器中查找对应的key,如果有，就直接返回。否则再去查询数据库，在将结果通过key保存到缓存中。<br>@CachePut：适合添加，修改，void方法上。因为spring不会事先去缓存服务器中查询数据，而是直接执行方法，然后将结果通过key保存到缓存中。这样是防止数据不一致。</p>
+<p>配置完成后重启服务器，可能会报错</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool</span><br></pre></td></tr></table></figure>
+
+<p>查看<a href="https://blog.csdn.net/erhuobuer/article/details/105390377" target="_blank" rel="noopener">Redis集群踩的坑及报错记录并解决</a></p>
+<p><a href="https://blog.csdn.net/erhuobuer/article/details/105351927" target="_blank" rel="noopener">一、Redis服务器搭建与学习</a><br><a href="https://blog.csdn.net/erhuobuer/article/details/105352104" target="_blank" rel="noopener">二、Redis Cluster（Redis 集群）的搭建</a><br><a href="https://blog.csdn.net/erhuobuer/article/details/105390377" target="_blank" rel="noopener">四、Redis集群踩的坑及报错记录并解决</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/545589369.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+        
+    </div>
+
+    
+    
+</div>
+
+    </div>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

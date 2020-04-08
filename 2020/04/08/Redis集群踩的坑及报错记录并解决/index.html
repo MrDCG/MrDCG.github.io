@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Redis集群踩的坑及报错记录并解决 - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="1、报错redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool,"> 
+    <meta name="author" content="贰货不二"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Redis集群踩的坑及报错记录并解决</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Redis集群踩的坑及报错记录并解决</h1>
+        <div class="stuff">
+            <span>四月 08, 2020</span>
+
+            <span>
+   阅读数(请刷新)<span id="busuanzi_value_page_pv"></span>
+</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Redis/">Redis</a></li></ul>
+
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="1、报错redis-clients-jedis-exceptions-JedisConnectionException-Could-not-get-a-resource-from-the-pool"><a href="#1、报错redis-clients-jedis-exceptions-JedisConnectionException-Could-not-get-a-resource-from-the-pool" class="headerlink" title="1、报错redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool"></a>1、报错redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool</h2><p>记录解决方案：<br>1、看看防火墙是否关闭</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#查看防火墙状态</span><br><span class="line">service iptables status</span><br><span class="line">#关闭防火墙</span><br><span class="line">service iptables stop</span><br></pre></td></tr></table></figure>
+
+<p>2、修改每个节点的redis.conf文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bind <span class="number">127.0</span>.0.1 <span class="number">10.25</span>.168.129</span><br><span class="line">修改为</span><br><span class="line">bind <span class="number">0.0</span>.0.0</span><br><span class="line">这样修改是让所有的ip都能访问</span><br></pre></td></tr></table></figure>
+
+<p>我的就是第二种原因。</p>
+<h2 id="2、踩坑，重启redis-cluster-会报错Node-xxx-is-not-empty"><a href="#2、踩坑，重启redis-cluster-会报错Node-xxx-is-not-empty" class="headerlink" title="2、踩坑，重启redis cluster 会报错Node xxx is not empty"></a>2、踩坑，重启redis cluster 会报错Node xxx is not empty</h2><p>这需要删除每个节点中的dump.rdb、*.aof、nodes.conf<br>在启动脚本里添加</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#删除redis01...redis6节点中的dump.rdb、nodes.conf文件</span><br><span class="line">rm -f redis0*/dump.rdb redis0*/nodes.conf</span><br><span class="line">cd redis01</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis02</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis03</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis04</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis05</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis06</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis01</span><br><span class="line">./redis-cli --cluster create ip:<span class="number">7001</span> ip:<span class="number">7002</span> ip:<span class="number">7003</span> ip:<span class="number">7004</span> ip:<span class="number">7005</span> ip:<span class="number">7006</span> --cluster-replicas <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>最后分配槽的时候一定要输入<strong>yes</strong>，只输入<strong>y</strong>不行<br>这种方案没有根本性解决问题，只是相当于又重新建了个集群。<br>有真正解决方案的麻烦告知一下。。。<br><a href="https://blog.csdn.net/erhuobuer/article/details/105351927" target="_blank" rel="noopener">一、Redis服务器搭建与学习</a><br><a href="https://blog.csdn.net/erhuobuer/article/details/105352104" target="_blank" rel="noopener">二、Redis Cluster（Redis 集群）的搭建</a><br><a href="https://blog.csdn.net/erhuobuer/article/details/105389736" target="_blank" rel="noopener">三、SSM整合Redis Cluster（Redis集群）</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/1326798446.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+        
+    </div>
+
+    
+    
+</div>
+
+    </div>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
