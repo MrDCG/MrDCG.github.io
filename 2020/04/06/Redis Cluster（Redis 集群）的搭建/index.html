@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Redis Cluster（Redis 集群）的搭建 - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="1、redis-cluster(redis集群)redis-cluster投票容错机制：Redis 之间通过互相的 ping-pong 判断是否节点可以连接上。如果有一半以上的节点去ping 一个节,"> 
+    <meta name="author" content="贰货不二"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Redis Cluster（Redis 集群）的搭建</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Redis Cluster（Redis 集群）的搭建</h1>
+        <div class="stuff">
+            <span>四月 06, 2020</span>
+
+            <span>
+   阅读数(请刷新)<span id="busuanzi_value_page_pv"></span>
+</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Redis/">Redis</a></li></ul>
+
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="1、redis-cluster-redis集群"><a href="#1、redis-cluster-redis集群" class="headerlink" title="1、redis-cluster(redis集群)"></a>1、redis-cluster(redis集群)</h4><p>redis-cluster投票容错机制：Redis 之间通过互相的 ping-pong 判断是否节点可以连接上。如果有一半以上的节点去ping 一个节点的时候没有回应，集群就认为这个节点宕机了，然后去连接它的从节点(必须主备模式)。<br>如果某个节点和所有从节点全部挂掉，集群就进入 fail 状态。 如果有一半以上的主节点宕机，那么集群同样进入 fail 了状态。<br>由于投票容错机制集群最少需要3个节点</p>
+<p>Redis 集群中内置了 16384 个哈希槽，当需要在 Redis 集群中放置一个 key-value时，redis 先对 key 使用 crc16 算法算出一个结果，然后把结果对 16384 求余数，这样每个 key 都会对应一个编号在 0-16383 之间的哈希槽，redis 会根据节点数量大致均等的将哈希槽映射到不同的节点。<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406213936299.png" alt><br>根据Redis槽的概念集群最多16384个</p>
+<h4 id="2、集群搭建"><a href="#2、集群搭建" class="headerlink" title="2、集群搭建"></a>2、集群搭建</h4><p> Redis集群中至少应该有三个节点。要保证集群的高可用，需要每个节点有一个备份机，因此Redis集群至少需要6台服务器。<br>搭建伪分布式。使用一台虚拟机运行6个redis实例。需要修改redis的端口号为7001-7006.<br>在/usr/local目录下创建redis-cluster目录，并将redis目录下的redis安装文件复制到redis-cluster目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">mkdir redis-cluster</span><br><span class="line">cp redis/bin redis-cluster/redis01 -r</span><br></pre></td></tr></table></figure>
+
+<p>删除复制文件中的数据文件包括dump.rdb和.aof文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/redis-cluster/redis01</span><br><span class="line">rm -f dump.rdb</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020040621401537.png" alt><br>修改redis.conf文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim redis.conf</span><br><span class="line">#修改端口号</span><br><span class="line">port 7001</span><br><span class="line">#将 cluster-enabled yes的注释打开</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020040621403279.png" alt><br>将redis01再复制5份</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">cp -r redis01/ redis02</span><br><span class="line">...</span><br><span class="line">cp -r redis01/ redis06</span><br></pre></td></tr></table></figure>
+
+<p>分别修改端口号为7002-7006</p>
+<p>批处理启动6个redis服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#创建一个批处理文件</span><br><span class="line">vim start-all.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">加入代码</span><br><span class="line">cd redis01</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis02</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis03</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis04</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis05</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">cd redis06</span><br><span class="line">./redis-server redis.conf</span><br><span class="line">cd ..</span><br><span class="line">#保存退出</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406214055199.png" alt><br>现在文件还不能执行，需要授权</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x start-all.sh</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406214106298.png" alt="、"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#执行</span><br><span class="line">./start-all.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查看是否启动成功</span><br><span class="line">ps aux|grep redis</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406214122904.png" alt><br>搭建集群需要redis源文件的.rb脚本<br>找到redis源文件中的src/redis-trib.rb文件，并将之复制到redis-cluster目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd  /usr/local/redis/redis-5.0.3/src</span><br><span class="line">cp redis-trib.rb /usr/local/redis-cluster/</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406214136877.png" alt><br>因为使用的是ruby脚本搭建服务器，所以需要ruby环境</p>
+<h5 id="2-1、安装ruby环境"><a href="#2-1、安装ruby环境" class="headerlink" title="2.1、安装ruby环境"></a>2.1、安装ruby环境</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#这两个旧版本先别装会报错，往后看，装新版本</span><br><span class="line">yum install ruby    </span><br><span class="line">yum install rubygems</span><br></pre></td></tr></table></figure>
+
+<p>下载 redis-3.0.0.gem<br>下载链接：<a href="https://pan.baidu.com/s/103xrsBEgd-n_WiM6t9Gfaw" target="_blank" rel="noopener">redis-3.0.0.gem</a><br>提取码：fs2u<br>将redis-3.0.0.gem传到linux系统下并安装<br>安装<code>gem install redis-3.0.0.gem</code><br>执行redis-trib.rb脚本文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-trib.rb create --replicas 1 ip:7001 ip:7002 ip:7003 ip:7004 ip:7005 ip:7006</span><br></pre></td></tr></table></figure>
+
+<p>报错<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406214151474.png" alt><br>ruby版本问题<br>卸载低版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum remove -y ruby</span><br><span class="line">yum remove -y rubygems</span><br></pre></td></tr></table></figure>
+
+<p>官网下载新版本<br><a href="http://www.ruby-lang.org/en/downloads/" target="_blank" rel="noopener">ruby</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#解压</span><br><span class="line"> </span><br><span class="line">tar –zxvf ruby-2.6.6.tar.gz</span><br><span class="line">cd ruby-2.6.6</span><br><span class="line">./configure</span><br><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>进入任意redis实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd redis01</span><br><span class="line">#新版本命令修改为</span><br><span class="line">./redis-cli --cluster create ip:7001 ip:7002 ip:7003 ip:7004 ip:7005 ip:7006 --cluster-replicas 1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/2020040621434218.png" alt><br><strong>这儿有个坑！！！下面是输入yes分配槽，只输y不行</strong><br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406214356904.png" alt></p>
+<h5 id="2-2、连接节点操作数据库"><a href="#2-2、连接节点操作数据库" class="headerlink" title="2.2、连接节点操作数据库"></a>2.2、连接节点操作数据库</h5><p>进入任意实例使用redis-cli连接节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd redis01</span><br><span class="line">./redis-cli -h ip地址 -p 7001 -c</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200406214407455.png" alt><br>计算出槽后将数据放在了7003上</p>
+<p><a href="https://mrdcg.github.io/2020/04/06/Redis%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%AD%A6%E4%B9%A0/">一、Redis服务器搭建与学习</a><br><a href="https://mrdcg.github.io/2020/04/08/SSM%E6%95%B4%E5%90%88Redis%20Cluster%EF%BC%88Redis%E9%9B%86%E7%BE%A4%EF%BC%89/">三、SSM整合Redis Cluster（Redis集群）</a><br><a href="https://mrdcg.github.io/2020/04/08/Redis%E9%9B%86%E7%BE%A4%E8%B8%A9%E7%9A%84%E5%9D%91%E5%8F%8A%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95%E5%B9%B6%E8%A7%A3%E5%86%B3/">四、Redis集群踩的坑及报错记录并解决</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/1418131597.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+        
+    </div>
+
+    
+    
+</div>
+
+    </div>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

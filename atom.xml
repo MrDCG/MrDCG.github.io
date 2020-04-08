@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2020-04-08T08:52:24.194Z</updated>
+  <updated>2020-04-08T08:59:33.240Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://mrdcg.github.io/2020/04/08/Redis%E9%9B%86%E7%BE%A4%E8%B8%A9%E7%9A%84%E5%9D%91%E5%8F%8A%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95%E5%B9%B6%E8%A7%A3%E5%86%B3/"/>
     <id>https://mrdcg.github.io/2020/04/08/Redis集群踩的坑及报错记录并解决/</id>
     <published>2020-04-08T08:51:31.000Z</published>
-    <updated>2020-04-08T08:52:24.194Z</updated>
+    <updated>2020-04-08T08:59:33.240Z</updated>
     
     <summary type="html">
     
@@ -49,7 +49,7 @@
     <link href="https://mrdcg.github.io/2020/04/08/SSM%E6%95%B4%E5%90%88Redis%20Cluster%EF%BC%88Redis%E9%9B%86%E7%BE%A4%EF%BC%89/"/>
     <id>https://mrdcg.github.io/2020/04/08/SSM整合Redis Cluster（Redis集群）/</id>
     <published>2020-04-08T08:50:31.000Z</published>
-    <updated>2020-04-08T08:50:16.920Z</updated>
+    <updated>2020-04-08T08:59:24.999Z</updated>
     
     <summary type="html">
     
@@ -75,11 +75,11 @@
   </entry>
   
   <entry>
-    <title>Redis集群的搭建</title>
-    <link href="https://mrdcg.github.io/2020/04/06/Redis%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
-    <id>https://mrdcg.github.io/2020/04/06/Redis集群的搭建/</id>
+    <title>Redis Cluster（Redis 集群）的搭建</title>
+    <link href="https://mrdcg.github.io/2020/04/06/Redis%20Cluster%EF%BC%88Redis%20%E9%9B%86%E7%BE%A4%EF%BC%89%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>https://mrdcg.github.io/2020/04/06/Redis Cluster（Redis 集群）的搭建/</id>
     <published>2020-04-06T14:03:31.000Z</published>
-    <updated>2020-04-08T08:47:21.875Z</updated>
+    <updated>2020-04-08T08:59:16.387Z</updated>
     
     <summary type="html">
     
@@ -107,7 +107,7 @@
     <link href="https://mrdcg.github.io/2020/04/06/Redis%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%AD%A6%E4%B9%A0/"/>
     <id>https://mrdcg.github.io/2020/04/06/Redis服务器搭建与学习/</id>
     <published>2020-04-06T13:49:31.000Z</published>
-    <updated>2020-04-08T08:46:22.378Z</updated>
+    <updated>2020-04-08T08:57:59.773Z</updated>
     
     <summary type="html">
     
@@ -288,9 +288,9 @@
       <category term="UI" scheme="https://mrdcg.github.io/categories/UI/"/>
     
     
-      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
-    
       <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
+    
+      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
     
   </entry>
   
@@ -368,9 +368,9 @@
       <category term="简历" scheme="https://mrdcg.github.io/categories/%E7%AE%80%E5%8E%86/"/>
     
     
-      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
-    
       <category term="CSS" scheme="https://mrdcg.github.io/tags/CSS/"/>
+    
+      <category term="HTML" scheme="https://mrdcg.github.io/tags/HTML/"/>
     
   </entry>
   
