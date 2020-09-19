@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Java + Selenium + Chrome抓取页面元素（支持Linux环境和Windows环境） - 闲看花开 静待花落</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="贰货不二,"> 
+    <meta name="description" content="前言尝试过Htmlunit和PhantomJS都无法抓取JS动态生成的页面，这两种方式实际抓取的都是原页面并不是js渲染之后的页面，后来经过尝试终于确定 Selenium + Chrome的方式能抓,"> 
+    <meta name="author" content="贰货不二"> 
+    <link rel="alternative" href="atom.xml" title="闲看花开 静待花落" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">闲看花开 静待花落</span>
+    <div id="loader"></div>
+    <div id="single">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://mrdcg.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Java + Selenium + Chrome抓取页面元素（支持Linux环境和Windows环境）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Java + Selenium + Chrome抓取页面元素（支持Linux环境和Windows环境）</h1>
+        <div class="stuff">
+            <span>九月 19, 2020</span>
+
+            <span>
+   阅读数(请刷新)<span id="busuanzi_value_page_pv"></span>
+</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/ChromeDriver/">ChromeDriver</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/selenium/">selenium</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>尝试过Htmlunit和PhantomJS都无法抓取JS动态生成的页面，这两种方式实际抓取的都是原页面并不是js渲染之后的页面，后来经过尝试终于确定 Selenium + Chrome的方式能抓取js渲染之后的界面，其中也有不少坑，在这里记录一下。</p>
+<h2 id="一、下载chromedriver"><a href="#一、下载chromedriver" class="headerlink" title="一、下载chromedriver"></a>一、下载chromedriver</h2><p>chromedriver和谷歌版本需要严格对应<br>下载地址<a href="https://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">chromedriver</a><br>根据谷歌版本下载对应的chromedriver<br><img src="https://cdn.jsdelivr.net/gh/MrDCG/EhuoImg/MrDCG-PIC/20200919143121188.png" alt><br><strong>依赖，高版本的selenium依赖只需要第一个，不用第二个依赖，但经过尝试 ，高版本的依赖可能会出现问题</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https:<span class="comment">//mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java --&gt;</span></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;3.11.0&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- https:<span class="comment">//mvnrepository.com/artifact/com.google.guava/guava --&gt;</span></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;24.1-jre&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">webdriver</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.getProperties().setProperty(<span class="string">"webdriver.chrome.driver"</span>,</span><br><span class="line">                <span class="string">"D:\\web_driver\\chromedriver.exe"</span>);</span><br><span class="line">        ChromeOptions options = <span class="keyword">new</span> ChromeOptions();</span><br><span class="line">        <span class="comment">// 无界面参数，使用后不会打开浏览器，linuxx环境必须加入</span></span><br><span class="line">        options.addArguments(<span class="string">"--headless"</span>);</span><br><span class="line">        <span class="comment">//禁用沙盒</span></span><br><span class="line">        options.addArguments(<span class="string">"--no-sandbox"</span>);</span><br><span class="line">        options.addArguments(<span class="string">"--disable-gpu"</span>);</span><br><span class="line">        options.addArguments(<span class="string">"--disable-dev-shm-usage"</span>);</span><br><span class="line">        WebDriver webDriver = <span class="keyword">new</span> ChromeDriver(options);</span><br><span class="line"><span class="comment">//        webDriver.manage().window().maximize();</span></span><br><span class="line">        webDriver.get(<span class="string">"https://www.baidu.com/"</span>);</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">10000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(webDriver.getPageSource());</span><br><span class="line">        webDriver.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>有一块代码相当重要</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">     Thread.sleep(<span class="number">10000</span>);</span><br><span class="line"> &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">     e.printStackTrace();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>没有这段代码获取到的页面是未渲染的页面</strong></p>
+<h2 id="二、linux环境"><a href="#二、linux环境" class="headerlink" title="二、linux环境"></a>二、linux环境</h2><p><strong>linux环境：centos7+，内核版本 _x86<br>centos7以下版本装不上chrome，linux内核为aarch64也装不上</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查看linux内核版本</span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装chrome"><a href="#安装chrome" class="headerlink" title="安装chrome"></a>安装chrome</h3><p><strong>配置chrome yum下载源：</strong><br>在目录 /etc/yum.repos.d/ 下新建文件 google-chrome.repo</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch google-chrome.repo</span><br></pre></td></tr></table></figure>
+
+<p>在google-chrome.repo添加内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#编辑google-chrome.repo</span><br><span class="line">vi /etc/yum.repos.d/google-chrome.repo</span><br><span class="line">#添加内容</span><br><span class="line">[google-chrome]</span><br><span class="line">name=google-chrome</span><br><span class="line">baseurl=http:<span class="comment">//dl.google.com/linux/chrome/rpm/stable/$basearch</span></span><br><span class="line">enabled=<span class="number">1</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">gpgkey=https:<span class="comment">//dl-ssl.google.com/linux/linux_signing_key.pub</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>安装chrome</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install google-chrome-stable --nogpgcheck</span><br></pre></td></tr></table></figure>
+
+<p>linux环境对不上的可能会报缺少依赖的错误<br>安装目录在/usr/bin/下</p>
+<p><strong>查看安装的chrome版本</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/google-chrome -version</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装chromedriver</strong><br><strong>根据上面的chromedriver链接查看对应的chromedriver下载地址</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#使用wget命令下载，这是85.0.4183版本谷歌对应的 driver</span><br><span class="line">wget https:<span class="comment">//cdn.npm.taobao.org/dist/chromedriver/85.0.4183.87/chromedriver_linux64.zip</span></span><br><span class="line">#使用unzip 命令解压</span><br><span class="line">unzip chromedriver_linux64.zip</span><br><span class="line">#将chromedriver 移至/usr/bin目录</span><br><span class="line">mv chromedriver /usr/bin/chromedriver</span><br><span class="line">#赋予权限</span><br><span class="line">chomod <span class="number">777</span> chromedriver</span><br></pre></td></tr></table></figure>
+
+<p>完成</p>
+<h2 id="！！！注意"><a href="#！！！注意" class="headerlink" title="！！！注意"></a>！！！注意</h2><p><strong>上面的代码不能直接在liunx环境用，实用上面的代码只能获取到为渲染的页面</strong><br><strong>要获取到渲染后的页面必须在</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webDriver.get(<span class="string">"https://www.baidu.com/"</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>这段代码前加上</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  Thread.sleep(<span class="number">10000</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">   e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完成</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/26075548.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='e79d3ae9c45da13e6f66'
+        data-cs='896cb16e937a9e56f91295c1bab9e5aad59746ad'
+        data-r='MrDCG.github.io'
+        data-o='MrDCG'
+        data-a='MrDCG'
+        data-d='true'
+    >查看评论</div>
+
+
+        
+    </div>
+
+    
+    
+</div>
+
+    </div>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

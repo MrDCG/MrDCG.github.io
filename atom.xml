@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrdcg.github.io/"/>
-  <updated>2020-06-09T02:06:45.996Z</updated>
+  <updated>2020-09-19T07:27:33.306Z</updated>
   <id>https://mrdcg.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java + Selenium + Chrome抓取页面元素（支持Linux环境和Windows环境）</title>
+    <link href="https://mrdcg.github.io/2020/09/19/Java%20+%20Selenium%20+%20Chrome%E6%8A%93%E5%8F%96%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0%EF%BC%88%E6%94%AF%E6%8C%81Linux%E7%8E%AF%E5%A2%83%E5%92%8CWindows%E7%8E%AF%E5%A2%83%EF%BC%89/"/>
+    <id>https://mrdcg.github.io/2020/09/19/Java + Selenium + Chrome抓取页面元素（支持Linux环境和Windows环境）/</id>
+    <published>2020-09-19T12:22:31.000Z</published>
+    <updated>2020-09-19T07:27:33.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://mrdcg.github.io/categories/java/"/>
+    
+    
+      <category term="爬虫" scheme="https://mrdcg.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="selenium" scheme="https://mrdcg.github.io/tags/selenium/"/>
+    
+      <category term="ChromeDriver" scheme="https://mrdcg.github.io/tags/ChromeDriver/"/>
+    
+  </entry>
   
   <entry>
     <title>记Eclipse安装svn插件</title>
@@ -526,32 +556,6 @@
         
         
           &lt;p&gt; &lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="博客网站" scheme="https://mrdcg.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/"/>
-    
-    
-      <category term="互联网" scheme="https://mrdcg.github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo素锦主题开启Gitalk评论功能</title>
-    <link href="https://mrdcg.github.io/2019/07/08/hexo%E7%B4%A0%E9%94%A6%E4%B8%BB%E9%A2%98%E5%BC%80%E5%90%AFGitalk%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/"/>
-    <id>https://mrdcg.github.io/2019/07/08/hexo素锦主题开启Gitalk评论功能/</id>
-    <published>2019-07-08T11:17:05.000Z</published>
-    <updated>2019-07-10T02:28:49.472Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;  &lt;a
         
       
     
